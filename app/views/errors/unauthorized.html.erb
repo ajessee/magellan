@@ -1,0 +1,13 @@
+<section class="http-error-container">
+
+  <h1>Yeah...no. You're not authorized to view this page.</h1>
+  <p><%= @error_message %></p>
+
+  <figure class="HTTP-status-svg">
+    <%= show_svg('401-Error.svg') %>
+  </figure>
+
+  <%= link_to "Log In", login_path %>
+  <h3>HTTP Status Code: <%= @error_code %></h3>
+
+</section>

@@ -1,0 +1,13 @@
+<section class="http-error-container">
+
+    <h1>That's a hard no from us</h1>
+    <p><%= @error_message %></p>
+  
+    <figure class="HTTP-status-svg">
+      <%= show_svg('403-Error.svg') %>
+    </figure>
+  
+    <%= link_to "Take Me Home", root_path %>
+    <h3>HTTP Status Code: <%= @error_code %></h3>
+  
+  </section>
