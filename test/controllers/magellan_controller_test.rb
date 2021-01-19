@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MainControllerTest < ActionDispatch::IntegrationTest
+class MagellanControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
