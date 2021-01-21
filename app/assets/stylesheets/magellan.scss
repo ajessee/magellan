@@ -1,3 +1,27 @@
 // Place all the styles related to the Magellan controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$light-blue: '#307FE2';
+$dark-blue: '#1D4289';
+$orange: '#DE7C00';
+
+.light-blue {
+  color: #307FE2;
+}
+
+.light-blue-background {
+  background-color: #307FE2;
+}
+
+.dark-blue {
+  color: #1D4289;
+}
+
+.dark-blue-background {
+  background-color: #1D4289;
+}
+
+.orange {
+  color: #DE7C00;
+}
