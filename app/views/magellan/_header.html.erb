@@ -1,14 +1,20 @@
-<header class="text-gray-600 body-font">
-  <div class="container mx-3 flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <%= image_tag("HomeBuyers.png") %>
+<header id="navbar-header" class="text-gray-600 body-font grid grid-cols-header fixed w-screen transition-colors duration-150 z-10 p-5">
+    <a id="main-link" class="self-center">
+      <%= image_tag("HomeBuyerHeart.png", class: 'h-50') %>
     </a>
-    <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-lg justify-center">
-      <a id="how-it-works-link" class="cursor-pointer mr-5 hover:text-gray-900">How It Works</a>
-      <a id="faq-link" class="cursor-pointer mr-5 hover:text-gray-900">FAQ</a>
-      <a id="testimonials-link" class="cursor-pointer mr-5 hover:text-gray-900">Testimonials</a>
-      <a id="contact-link" class="cursor-pointer mr-5 hover:text-gray-900">Contact</a>
-      <a id="resources-link" class="cursor-pointer mr-5 hover:text-gray-900">Resources</a>
-    </nav>
-  </div>
+    <div class="flex flex-row flex-wrap justify-between content-center">
+      <nav class="flex flex-wrap items-start text-base text-xl">
+        <a id="how-it-works-link" class="cursor-pointer mr-5 hover:text-blue-900">Stress-Free Selling</a>
+        <a id="about-us-link" class="cursor-pointer mr-5 hover:text-blue-900">About Us</a>
+        <a id="different-link" class="cursor-pointer mr-5 hover:text-blue-900">What Makes us Different</a>
+        <a id="faq-link" class="cursor-pointer mr-5 hover:text-blue-900">FAQs</a>
+      </nav>
+      <div class="flex flex-wrap items-start text-lg">
+        <p class="mr-5">Family Owned and Operated</p>
+        <%= inline_svg_tag "phone-alt-solid.svg", class: 'h-5 self-center stroke-current text-blue-600' %>
+        <p>&nbsp;&nbsp;(832) 508-6326</p>
+      </div>
+    </div>
+
+
 </header>

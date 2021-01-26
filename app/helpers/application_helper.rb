@@ -2,9 +2,10 @@
 
 module ApplicationHelper
   def show_svg(path)
-    File.open("app/assets/images/#{path}", 'rb') do |file|
+    svg_string = File.open("app/assets/images/#{path}", 'rb') do |file|
       raw file.read
     end
+    raw svg_string
   end
 
   def show_pdf(attachment)

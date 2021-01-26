@@ -1,55 +1,41 @@
- 
-<section id="how-it-works-section" class="text-gray-600 body-font">
-  <div class="container px-5 py-20 mx-auto flex flex-col">
-   <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900">Stress-Free Selling</h1>
-   <h3 class="sm:text-2xl text-1xl font-medium title-font text-center text-gray-600">Sell your house for cash in three easy steps</h3>
-    <div class="flex flex-wrap w-full">
-      <div class="lg:w-1/2 md:w-1/2 md:px-20 md:py-20 mt-10">
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-base text-gray-900 mb-1 tracking-wider">Step 1: Send Your Address</h2>
-            <p class="leading-relaxed">We research the details of your home and start crafting a great offer for you.</p>
-          </div>
-        </div>
-        <div class="flex relative pb-12">
-          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-          </div>
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-base text-gray-900 mb-1 tracking-wider">Step 2: Get Your Offer</h2>
-            <p class="leading-relaxed">We present you with a fair cash offer with no obligation and no fees.</p>
-          </div>
-        </div>
-        <div class="flex relative">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-              <path d="M22 4L12 14.01l-3-3"></path>
-            </svg>
-          </div>
-          <div class="flex-grow pl-4">
-            <h2 class="font-medium title-font text-base text-gray-900 mb-1 tracking-wider">Step 3: Get Paid Fast</h2>
-            <p class="leading-relaxed">Accept your all cash offer and get the money you need now</p>
-          </div>
-        </div>
+
+
+<section id="how-it-works-section" class="bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-6 py-8">
+      <div>
+        <h1 class="text-3xl font-medium title-font text-center text-gray-900 mb-5">Stress-Free Selling</h1>
+        <h3 class="text-2xl font-medium title-font text-center text-gray-600 mb-10">Sell your house for cash in three easy steps</h3>
       </div>
-      <div class="w-1/2">
-        <%= image_tag('right_direction.png') %>
+      <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-stretch text-center">
+          <div>
+              <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-base">Step 1: Enter Your Address</h1>
+              
+              <%= inline_svg_tag "comments-solid.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">We research the details of your home and start crafting a great for you</p>
+          </div>
+
+          <div>
+              <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-xl">Step 2: Get Your Offer</h1>
+              
+              <%= inline_svg_tag "newspaper-regular.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %> 
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">We present you with a fair cash offer with no obligation and no fees</p>
+          </div>
+          
+          <div>
+              <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-xl">Step 3: Get Paid Fast</h1>
+
+              <%= inline_svg_tag "dollar-sign-solid.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %>
+          
+              <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">Accept your all cash offer and get the money you need now</p>
+          </div>
       </div>
     </div>
-  </div>
+    <div class="flex items-center justify-center pb-6 md:py-0 md:w-full mt-10">
+      <%= render 'contact_form' %>
+    </div>
+    <div class="flex mt-6 justify-center">
+      <div class="w-3/4 h-1 rounded-full bg-blue-500 inline-flex"></div>
+    </div>
 </section>
