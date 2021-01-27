@@ -6,6 +6,10 @@ module.exports = {
       gridTemplateColumns: {
         // Header specific column configuration
        'header': '10% 90%',
+      },
+      gridTemplateRows: {
+        // Header specific column configuration
+       'header': 'auto auto',
       }
     },
     fontFamily: {

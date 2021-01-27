@@ -1,6 +1,19 @@
-<div id="hero-section" class="bg-cover bg-scroll bg-center bg-no-repeat h-screen" style="background-image: url(<%= image_url('lady_wall.jpg') %>)">
-
-  <!-- Hero Content -->
-  <%= render 'hero_content' %>
-
-</div>
+<section id="hero-section" class="bg-cover bg-scroll bg-center bg-no-repeat h-screen static" style="background-image: url(<%= image_url('lady_wall.jpg') %>)">
+  <div class="grid grid-cols-12 grid-rows-6 h-full">
+    <div class="row-start-2 row-span-4 col-start-2 col-span-4 border border-gray-200 rounded-lg shadow bg-gray-100 bg-opacity-25">
+      <div class="flex flex-col p-8">
+        <h1 class="text-5xl text-gray-900 text-center mb-10">Does Your House Need Some Love?</h1>
+        <p class="text-4xl text-center mb-2">Sell Fast!</p>
+        <p class="text-4xl text-center mb-20">We are your Reliable and Trusted Cash Buyer.</p>
+        <p class="text-3xl text-center">Sell as-is.</p>
+        <p class="text-3xl text-center">No repairs, updates or showings.</p>
+        <p class="text-3xl text-center">Move on your timeline.</p>
+        <p class="text-3xl text-center mb-5">Pay zero fees.</p>
+        <div class="">
+          <!-- Contact Form -->
+          <%= render 'contact_form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

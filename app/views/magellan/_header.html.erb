@@ -1,20 +1,20 @@
-<header id="navbar-header" class="text-gray-600 body-font grid grid-cols-header fixed w-screen transition-colors duration-150 z-10 px-5">
-    <a id="main-link" class="self-center">
-      <%= image_tag("HomeBuyerHeart.png", class: 'h-50') %>
+<header id="navbar-header" class="text-gray-600 body-font grid grid-cols-header w-screen bg-transparent fixed top-0 z-10 px-5 py-2">
+    <a id="main-link" class="self-center cursor-pointer">
+      <%= inline_svg_tag "HomeBuyerWithHeart.svg", class: 'self-center' %>
     </a>
-    <div class="flex flex-row flex-wrap justify-between content-center">
-      <nav class="flex flex-wrap items-start text-base text-xl">
-        <a id="how-it-works-link" class="cursor-pointer mr-5 hover:text-blue-900">Stress-Free Selling</a>
-        <a id="about-us-link" class="cursor-pointer mr-5 hover:text-blue-900">About Us</a>
-        <a id="different-link" class="cursor-pointer mr-5 hover:text-blue-900">What Makes us Different</a>
-        <a id="faq-link" class="cursor-pointer mr-5 hover:text-blue-900">FAQs</a>
-      </nav>
-      <div class="flex flex-wrap items-start text-lg">
-        <p class="mr-5">Family Owned and Operated</p>
-        <%= inline_svg_tag "phone-alt-solid.svg", class: 'h-5 self-center stroke-current text-blue-600' %>
-        <p>&nbsp;&nbsp;(832) 508-6326</p>
+    <div class="grid grid-rows-2">
+      <div class="row-start-1 row-span-1 flex flex-row flex-wrap justify-between px-5">
+        <nav class="flex flex-wrap items-start text-base text-xl">
+          <a id="how-it-works-link" class="cursor-pointer mr-5 hover:text-red-600">Stress-Free Selling</a>
+          <a id="about-us-link" class="cursor-pointer mr-5 hover:text-red-600">About Us</a>
+          <a id="different-link" class="cursor-pointer mr-5 hover:text-red-600">What Makes us Different</a>
+          <a id="testimonials-link" class="cursor-pointer mr-5 hover:text-red-600">Testimonials</a>
+          <a id="faq-link" class="cursor-pointer mr-5 hover:text-red-600">FAQs</a>
+        </nav>
+      </div>
+      <div class="row-start-2 row-span-1 flex flex-row flex-wrap justify-between content-center px-5 text-base">
+        <span class="mr-5">Family Owned and Operated</span>
+        <span><%= inline_svg_tag "phone-alt-solid.svg", class: 'h-4 inline-block stroke-current text-blue-600' %>&nbsp;&nbsp;(832) 508-6326</span>
       </div>
     </div>
-
-
 </header>

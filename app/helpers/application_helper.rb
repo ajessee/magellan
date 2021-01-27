@@ -18,8 +18,8 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = 'Buy Your House Texas'
-    short_title = 'BYHT'
+    base_title = 'Home Buyer With A Heart'
+    short_title = 'HBWAH'
     if page_title.empty?
       base_title
     else
