@@ -2,7 +2,7 @@ export function navbarModule() {
   document.addEventListener("DOMContentLoaded", function(){
     console.log('NavBar Module')
     const navbarHeader = document.getElementById('navbar-header')
-    const navbarHeaderHeight = navbarHeader.offsetHeight
+    let navbarHeaderHeight = navbarHeader.offsetHeight
     const html = document.querySelector('html') 
     const mainLink = document.getElementById('main-link')
     const heroSection = document.getElementById('hero-section')
@@ -18,9 +18,17 @@ export function navbarModule() {
     const testimonialsSection = document.getElementById('testimonials-section')
     const contactLink = document.getElementById('contact-link')
     const contactSection = document.getElementById('contact-section')
-    let previousScrollPostion = window.pageYOffset
 
-    // heroSection.style.marginTop = navbarHeaderHeight + 'px';
+    
+    const handleResize = function(navbarHeader, navbarHeaderHeight, heroSection){
+      navbarHeaderHeight = navbarHeader.offsetHeight;
+      heroSection.style.marginTop = navbarHeaderHeight + 'px';
+      heroSection.style.height = (window.innerHeight - navbarHeaderHeight) + 'px'
+    }
+    
+    window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, heroSection));
+    
+    handleResize(navbarHeader, navbarHeaderHeight, heroSection)
 
     mainLink.addEventListener('click', function(e){
       e.preventDefault();
@@ -51,20 +59,6 @@ export function navbarModule() {
     //   contactSection.scrollIntoView({behavior: "smooth"})
     // })
 
-    document.addEventListener('scroll', function(e) {
-      let currentScrollPostion = window.pageYOffset;
-      // debugger
-      if (currentScrollPostion > 0) {
-
-        navbarHeader.classList.remove('bg-transparent')
-        navbarHeader.classList.add('bg-white', 'shadow')
-      } else {
-        
-        navbarHeader.classList.remove('bg-white', 'shadow')
-        navbarHeader.classList.add('bg-transparent')
-      }
-      previousScrollPostion = currentScrollPostion
-    });
   });
 
 }
