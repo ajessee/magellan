@@ -9,7 +9,7 @@
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex md:hidden">
+        <div id="mobile-menu-button" class="flex md:hidden">
           <button type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600  dark:focus:text-gray-400" aria-label="toggle menu">
             <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
               <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-      <div class="md:flex w-full md:justify-between">
+      <div id="mobile-menu" class="hidden md:block md:flex w-full md:justify-between">
         <div class="flex flex-col flex-shrink flex-wrap md:flex-row lg:mx-6 md:mx-2 md:items-center md:text-base lg:text-xl">
           <a id="how-it-works-link" class="my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600">Stress-Free Selling</a>
           <a id="about-us-link" class="my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600">About Us</a>
@@ -29,7 +29,7 @@
         </div>
         <hr class="md:hidden h-px my-2 bg-gray-300 dark:bg-gray-700 border-none">
         <div class="flex flex-col md:items-end">
-          <div class="lg:text-xl md:text-base"><%= inline_svg_tag "phone-alt-solid.svg", class: 'h-4 lg:h-6 inline-block stroke-current text-blue-600' %>&nbsp;&nbsp;(832) 508-6326</div>
+          <div class="lg:text-xl md:text-right md:min-w-max md:text-base"><%= inline_svg_tag "phone-alt-solid.svg", class: 'h-4 lg:h-6 inline-block stroke-current text-blue-600' %>&nbsp;&nbsp;(832) 508-6326</div>
           <div class="md:text-sm md:text-right lg:text-base text-gray-500">Family Owned and Operated</div>
         </div>
       </div>

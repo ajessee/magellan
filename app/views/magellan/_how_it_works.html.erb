@@ -1,27 +1,27 @@
 <section id="how-it-works-section" class="bg-white dark:bg-gray-800">
     <div class="container mx-auto px-6 py-8">
       <div>
-        <h1 class="text-3xl font-medium title-font text-center text-gray-900 mb-5">Stress-Free Selling</h1>
-        <h3 class="text-2xl font-medium title-font text-center text-gray-600 mb-10">Sell your house for cash in three easy steps</h3>
+        <h1 class="text-2xl md:text-3xl font-medium title-font text-center text-gray-900 mb-5">Stress-Free Selling</h1>
+        <h3 class="text-xl md:text-2xl font-medium title-font text-center text-gray-600 mb-10">Sell your house for cash in three easy steps</h3>
       </div>
-      <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-stretch text-center">
-        <div>
-          <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-base">Step 1: Enter Your Address</h1>
-          <%= inline_svg_tag "comments-solid.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %>
-          <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">We research the details of your home and start crafting a great for you</p>
+      <div class="grid gap-5 grid-cols-1 md:grid-cols-3 justify-items-auto text-center">
+        <div class="flex flex-col justify-start">
+          <h1 class="font-semibold text-base md:text-xl text-gray-800 dark:text-white text-base">1. Enter Your Address</h1>
+          <%= inline_svg_tag "comments-solid.svg", class: 'h-12 md:h-24 mx-auto my-10 stroke-current text-blue-600' %>
+          <p class="mt-2 text-gray-500 dark:text-gray-400 text-base md:text-xl">We research the details of your home and start crafting a great for you</p>
         </div>
-        <div>
-          <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-xl">Step 2: Get Your Offer</h1>
-          <%= inline_svg_tag "newspaper-regular.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %> 
-          <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">We present you with a fair cash offer with no obligation and no fees</p>
+        <div class="flex flex-col justify-start">
+          <h1 class="font-semibold text-base md:text-xl text-gray-800 dark:text-white text-base md:text-xl">2. Get Your Offer</h1>
+          <%= inline_svg_tag "newspaper-regular.svg", class: 'h-12 md:h-24 mx-auto my-10 stroke-current text-blue-600' %> 
+          <p class="mt-2 text-gray-500 dark:text-gray-400 text-base md:text-xl">We present you with a fair cash offer with no obligation and no fees</p>
         </div>
-        <div>
-          <h1 class="mt-4 font-semibold text-xl text-gray-800 dark:text-white text-xl">Step 3: Get Paid Fast</h1>
-          <%= inline_svg_tag "dollar-sign-solid.svg", class: 'h-24 mx-auto my-10 stroke-current text-blue-600' %>
-          <p class="mt-2 text-gray-500 dark:text-gray-400 text-xl">Accept your all cash offer and get the money you need now</p>
+        <div class="flex flex-col justify-start">
+          <h1 class="font-semibold text-base md:text-xl text-gray-800 dark:text-white text-base md:text-xl">3. Get Paid Fast</h1>
+          <%= inline_svg_tag "dollar-sign-solid.svg", class: 'h-12 md:h-24 mx-auto my-10 stroke-current text-blue-600' %>
+          <p class="mt-2 text-gray-500 dark:text-gray-400 text-base md:text-xl">Accept your all cash offer and get the money you need now</p>
         </div>
       </div>
-      <div class="flex items-center justify-center pb-6 md:py-0 md:w-full m-10">
+      <div class="flex justify-center mt-5">
         <%= render 'contact_form' %>
       </div>
     </div>

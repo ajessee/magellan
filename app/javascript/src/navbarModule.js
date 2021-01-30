@@ -16,8 +16,11 @@ export function navbarModule() {
     const faqSection = document.getElementById('faq-section')
     const testimonialsLink = document.getElementById('testimonials-link')
     const testimonialsSection = document.getElementById('testimonials-section')
-    const contactLink = document.getElementById('contact-link')
-    const contactSection = document.getElementById('contact-section')
+    const mobileMenu = document.getElementById('mobile-menu')
+    const mobileMenuButton = document.getElementById('mobile-menu-button')
+    const parallax1 = document.getElementById('parallax-1')
+    const parallax2 = document.getElementById('parallax-2')
+    const parallax3 = document.getElementById('parallax-3')
 
     
     const handleResize = function(navbarHeader, navbarHeaderHeight, heroSection){
@@ -30,6 +33,11 @@ export function navbarModule() {
     
     handleResize(navbarHeader, navbarHeaderHeight, heroSection)
 
+    mobileMenuButton.addEventListener('click', function(e){
+      e.preventDefault();
+      mobileMenu.classList.toggle('hidden')
+      mobileMenu.classList.toggle('md:block')
+    })
     mainLink.addEventListener('click', function(e){
       e.preventDefault();
       html.scrollIntoView({behavior: "smooth", block: "start"})
@@ -40,7 +48,7 @@ export function navbarModule() {
     })
     aboutUsLink.addEventListener('click', function(e){
       e.preventDefault();
-      aboutUsSection.scrollIntoView({behavior: "smooth", block: "center"})
+      aboutUsSection.scrollIntoView({behavior: "smooth", block: "start"})
     })
     differentLink.addEventListener('click', function(e){
       e.preventDefault();
@@ -50,14 +58,10 @@ export function navbarModule() {
       e.preventDefault();
       faqSection.scrollIntoView({behavior: "smooth", block: "center"})
     })
-    // testimonialsLink.addEventListener('click', function(e){
-    //   e.preventDefault();
-    //   testimonialsSection.scrollIntoView({behavior: "smooth"})
-    // })
-    // contactLink.addEventListener('click', function(e){
-    //   e.preventDefault();
-    //   contactSection.scrollIntoView({behavior: "smooth"})
-    // })
+    testimonialsLink.addEventListener('click', function(e){
+      e.preventDefault();
+      testimonialsSection.scrollIntoView({behavior: "smooth"})
+    })
 
   });
 
