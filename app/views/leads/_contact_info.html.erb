@@ -1,0 +1,27 @@
+<div id="lead-contact-info-section" class="bg-gray-100 flex flex-col">
+  <div class="container w-1/2 mx-auto flex-1 flex flex-col items-center justify-center px-2">
+    <div class="bg-white px-6 py-8 rounded shadow-lg text-black w-full">
+      <h1 class="mb-8 text-3xl text-center">How Can We Contact You?</h1>
+      <%= form_with model: @lead, class: "" do |form| %>
+
+          <div class="p-2">
+
+            <%= form.text_field :first_name, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "First Name" %>
+          </div>
+          <div class="p-2">
+
+            <%= form.text_field :last_name, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Last Name" %>
+          </div>
+          <div class="p-2">
+
+            <%= form.text_field :email, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Email", required: true %>
+          </div>
+          <div class="p-2">
+            <%= form.text_field :phone, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Phone" %>
+          </div>
+
+        <%= form.submit "Get Your Cash Offer", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,8 +4,12 @@ export function navbarModule() {
     console.log('Nav Bar Module')
     const homeLandingPage = document.getElementById('home-route')
     const faqLandingPage = document.getElementById('faq-route')
+    const leadContactInfoPage = document.getElementById('lead-create-route')
+    const leadContactDetailsPage = document.getElementById('lead-update-route')
     const navbarHeader = document.getElementById('navbar-header')
+    const footerSection = document.getElementById('footer-section')
     let navbarHeaderHeight = navbarHeader.offsetHeight
+    let footerSectionHeight = footerSection.offsetHeight
     const html = document.querySelector('html') 
     const mainLink = document.getElementById('main-link')
     const howItWorksLink = document.getElementById('how-it-works-link')
@@ -54,6 +58,18 @@ export function navbarModule() {
       const faqSection = document.getElementById('faq-section')
       window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, faqSection, false, []));
       handleResize(navbarHeader, navbarHeaderHeight, faqSection, false, [])
+    } else if (leadContactInfoPage) {
+      console.log('Lead Contact Info Page Loaded')
+      const leadContactDetailsSection = document.getElementById('lead-contact-info-section')
+      leadContactDetailsSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, leadContactDetailsSection, false, []));
+      handleResize(navbarHeader, navbarHeaderHeight, leadContactDetailsSection, false, [])
+    } else if (leadContactDetailsPage) {
+      console.log('Lead Contact Details Page Loaded')
+      const leadContactInfoSection = document.getElementById('lead-contact-details-section')
+      leadContactInfoSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, leadContactInfoSection, false, []));
+      handleResize(navbarHeader, navbarHeaderHeight, leadContactInfoSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){
@@ -66,7 +82,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         html.scrollIntoView({behavior: "smooth", block: "start"})
         toggleMobileMenu();
-      } else if (faqLandingPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
         Turbolinks.visit('/')
       }
     })
@@ -75,7 +91,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         howItWorksSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
         Turbolinks.visit('/#stress-free-selling-section')
       }
     })
@@ -84,7 +100,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         aboutUsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
         Turbolinks.visit('/#about-us-section')
       }
     })
@@ -93,7 +109,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         differentSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
         Turbolinks.visit('/#what-makes-us-different')
       }
     })
@@ -102,7 +118,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         testimonialsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
         Turbolinks.visit('/#testimonials-section')
       }
       

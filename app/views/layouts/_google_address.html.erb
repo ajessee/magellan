@@ -1,3 +1,2 @@
-<% if Rails.env.production? %>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google_maps_api_key) %>&libraries=places">
-<% end %>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google_maps_api_key) %>&libraries=places"></script>
