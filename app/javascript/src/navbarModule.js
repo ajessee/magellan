@@ -15,10 +15,10 @@ export function navbarModule() {
     const testimonialsLink = document.getElementById('testimonials-link')
     const mobileMenu = document.getElementById('mobile-menu')
     const mobileMenuButton = document.getElementById('mobile-menu-button')
-    const howItWorksSection = document.getElementById('how-it-works-section')
-    const heroSection = document.getElementById('hero-section')
+    const howItWorksSection = document.getElementById('stress-free-selling-section')
+    const heroSection = document.getElementById('landing-section')
     const aboutUsSection = document.getElementById('about-us-section')
-    const differentSection = document.getElementById('different-section')
+    const differentSection = document.getElementById('what-makes-us-different')
     const testimonialsSection = document.getElementById('testimonials-section')
     const parallax1 = document.getElementById('parallax-1')
     const parallax2 = document.getElementById('parallax-2')
@@ -76,7 +76,7 @@ export function navbarModule() {
         howItWorksSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
       } else if (faqLandingPage) {
-        Turbolinks.visit('/#how-it-works-section')
+        Turbolinks.visit('/#stress-free-selling-section')
       }
     })
     aboutUsLink.addEventListener('click', function(e){
@@ -94,7 +94,7 @@ export function navbarModule() {
         differentSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
       } else if (faqLandingPage) {
-        Turbolinks.visit('/#different-section')
+        Turbolinks.visit('/#what-makes-us-different')
       }
     })
     testimonialsLink.addEventListener('click', function(e){
