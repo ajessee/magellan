@@ -28,7 +28,7 @@ export function navbarModule() {
     const parallax2 = document.getElementById('parallax-2')
     const parallax3 = document.getElementById('parallax-3')
 
-    const handleResize = function(navbarHeader, navbarHeaderHeight, section, isMainSection, scrollMarginSections){
+    const handleResize = function(navbarHeader, section, isMainSection, scrollMarginSections){
       navbarHeaderHeight = navbarHeader.offsetHeight;
       let navbarHeaderHeightString = navbarHeaderHeight + 'px';
       section.style.marginTop = navbarHeaderHeightString
@@ -50,26 +50,26 @@ export function navbarModule() {
 
     if (homeLandingPage) {
       console.log('Home Page Loaded')
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
-      handleResize(navbarHeader, navbarHeaderHeight, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
+      handleResize(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
 
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, faqSection, false, []));
-      handleResize(navbarHeader, navbarHeaderHeight, faqSection, false, [])
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, faqSection, false, []));
+      handleResize(navbarHeader, faqSection, false, [])
     } else if (leadContactInfoPage) {
       console.log('Lead Contact Info Page Loaded')
       const leadContactDetailsSection = document.getElementById('lead-contact-info-section')
       leadContactDetailsSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, leadContactDetailsSection, false, []));
-      handleResize(navbarHeader, navbarHeaderHeight, leadContactDetailsSection, false, [])
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactDetailsSection, false, []));
+      handleResize(navbarHeader, leadContactDetailsSection, false, [])
     } else if (leadContactDetailsPage) {
       console.log('Lead Contact Details Page Loaded')
       const leadContactInfoSection = document.getElementById('lead-contact-details-section')
       leadContactInfoSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, navbarHeaderHeight, leadContactInfoSection, false, []));
-      handleResize(navbarHeader, navbarHeaderHeight, leadContactInfoSection, false, [])
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactInfoSection, false, []));
+      handleResize(navbarHeader, leadContactInfoSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){

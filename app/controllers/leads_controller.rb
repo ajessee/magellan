@@ -10,10 +10,13 @@ class LeadsController < ApplicationController
   def edit
     @lead = Lead.find(params[:id])
     @lead.update(lead_params)
+    @lead.save
   end
   
   def update
     @lead = Lead.find(params[:id])
+    @lead.update(lead_params)
+    @lead.save
   end
 
   def destroy
