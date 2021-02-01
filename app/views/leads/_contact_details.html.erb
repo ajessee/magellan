@@ -3,10 +3,8 @@
     <div class="bg-white px-6 py-8 rounded shadow-lg text-black w-full">
       <h1 class="mb-8 text-3xl text-center">How quickly do you need to sell?</h1>
       <%= form_with model: @lead, class: "" do |form| %>
-
-
           <div class="p-2">
-            <%= form.select :sale_time_frame, ['Yesterday', 'Less than a week', 'Within 21 days', 'Within 30 days', 'Within 60 days', 'No Hurry'], {}, {class: "form-select mt-1 block w-full"} %>
+            <%= form.select :sale_time_frame, ['Yesterday', 'Less than a week', 'Within 21 days', 'Within 30 days', 'Within 60 days', 'No Hurry'], {prompt: "Please Choose..."}, {class: "form-select mt-1 block w-full"} %>
           </div>
           <div class="p-2">
             <%= form.text_field :sale_target_price, class: "block border border-gray-300 w-1/2 p-3 rounded mb-4", placeholder: "Price Wanted" %>
@@ -18,8 +16,19 @@
           <div class="p-2">
             <%= form.text_area :details, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Any Additional Details You Think Would Be Helpful" %>
           </div>
-
-        <%= form.submit "Get Your Cash Offer", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded-lg" %>
+          <%= form.hidden_field :first_name %>
+          <%= form.hidden_field :last_name %>
+          <%= form.hidden_field :email %>
+          <%= form.hidden_field :phone %>
+          <%= form.hidden_field :street_number %>
+          <%= form.hidden_field :route %>
+          <%= form.hidden_field :locality %>
+          <%= form.hidden_field :administrative_area_level_1 %>
+          <%= form.hidden_field :country %>
+          <%= form.hidden_field :postal_code %>
+          <%= form.hidden_field :lead_source, value: "Partner" %>
+          <%= form.hidden_field :lead_status, value: "Active" %>
+        <%= form.submit "Get Your Cash Offer", id: "final-lead-form-submit", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded-lg" %>
       <% end %>
     </div>
   </div>

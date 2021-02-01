@@ -41,35 +41,32 @@ export function navbarModule() {
         });
       }
     }
-
     const toggleMobileMenu = function() {
       mobileMenu.classList.toggle('hidden')
       mobileMenu.classList.toggle('md:block')
     }
-
-
     if (homeLandingPage) {
       console.log('Home Page Loaded')
       window.addEventListener('resize', handleResize.bind(null, navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
       handleResize(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
-
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
+      faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       window.addEventListener('resize', handleResize.bind(null, navbarHeader, faqSection, false, []));
       handleResize(navbarHeader, faqSection, false, [])
     } else if (leadContactInfoPage) {
       console.log('Lead Contact Info Page Loaded')
-      const leadContactDetailsSection = document.getElementById('lead-contact-info-section')
-      leadContactDetailsSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactDetailsSection, false, []));
-      handleResize(navbarHeader, leadContactDetailsSection, false, [])
-    } else if (leadContactDetailsPage) {
-      console.log('Lead Contact Details Page Loaded')
-      const leadContactInfoSection = document.getElementById('lead-contact-details-section')
-      leadContactInfoSection.style.height = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      const leadContactInfoSection = document.getElementById('lead-contact-info-section')
+      leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactInfoSection, false, []));
       handleResize(navbarHeader, leadContactInfoSection, false, [])
+    } else if (leadContactDetailsPage) {
+      console.log('Lead Contact Details Page Loaded')
+      const leadContactDetailsSection = document.getElementById('lead-contact-details-section')
+      leadContactDetailsSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactDetailsSection, false, []));
+      handleResize(navbarHeader, leadContactDetailsSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){
