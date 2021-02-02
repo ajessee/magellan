@@ -44,19 +44,19 @@ export function navbarModule() {
     }
     if (homeLandingPage) {
       console.log('Home Page Loaded')
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
+      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
       handleResize(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
       faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, faqSection, false, []));
+      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, faqSection, false, []));
       handleResize(navbarHeader, faqSection, false, [])
     } else if (leadContactInfoPage) {
       console.log('Lead Contact Info Page Loaded')
       const leadContactInfoSection = document.getElementById('lead-contact-info-section')
       leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactInfoSection, false, []));
+      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactInfoSection, false, []));
       handleResize(navbarHeader, leadContactInfoSection, false, [])
     } else if (leadContactDetailsPage) {
       console.log('Lead Contact Details Page Loaded')
@@ -68,7 +68,7 @@ export function navbarModule() {
       console.log('Thank You Page Loaded')
       const thankYouSection = document.getElementById('thank-you-section')
       thankYouSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, thankYouSection, false, []));
+      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, thankYouSection, false, []));
       handleResize(navbarHeader, thankYouSection, false, [])
     }
 
