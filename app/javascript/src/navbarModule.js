@@ -6,6 +6,7 @@ export function navbarModule() {
     const faqLandingPage = document.getElementById('faq-route')
     const leadContactInfoPage = document.getElementById('lead-create-route')
     const leadContactDetailsPage = document.getElementById('lead-update-route')
+    const leadCapturedPage = document.getElementById('lead-captured-route')
     const navbarHeader = document.getElementById('navbar-header')
     const footerSection = document.getElementById('footer-section')
     let navbarHeaderHeight = navbarHeader.offsetHeight
@@ -15,7 +16,6 @@ export function navbarModule() {
     const howItWorksLink = document.getElementById('how-it-works-link')
     const aboutUsLink = document.getElementById('about-us-link')
     const differentLink = document.getElementById('different-link')
-    const faqLink = document.getElementById('faq-link')
     const testimonialsLink = document.getElementById('testimonials-link')
     const mobileMenu = document.getElementById('mobile-menu')
     const mobileMenuButton = document.getElementById('mobile-menu-button')
@@ -24,9 +24,6 @@ export function navbarModule() {
     const aboutUsSection = document.getElementById('about-us-section')
     const differentSection = document.getElementById('what-makes-us-different')
     const testimonialsSection = document.getElementById('testimonials-section')
-    const parallax1 = document.getElementById('parallax-1')
-    const parallax2 = document.getElementById('parallax-2')
-    const parallax3 = document.getElementById('parallax-3')
 
     const handleResize = function(navbarHeader, section, isMainSection, scrollMarginSections){
       navbarHeaderHeight = navbarHeader.offsetHeight;
@@ -67,6 +64,12 @@ export function navbarModule() {
       leadContactDetailsSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactDetailsSection, false, []));
       handleResize(navbarHeader, leadContactDetailsSection, false, [])
+    } else if (leadCapturedPage) {
+      console.log('Thank You Page Loaded')
+      const thankYouSection = document.getElementById('thank-you-section')
+      thankYouSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      window.addEventListener('resize', handleResize.bind(null, navbarHeader, thankYouSection, false, []));
+      handleResize(navbarHeader, thankYouSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){
@@ -79,7 +82,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         html.scrollIntoView({behavior: "smooth", block: "start"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
         Turbolinks.visit('/')
       }
     })
@@ -88,7 +91,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         howItWorksSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
         Turbolinks.visit('/#stress-free-selling-section')
       }
     })
@@ -97,7 +100,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         aboutUsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
         Turbolinks.visit('/#about-us-section')
       }
     })
@@ -106,7 +109,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         differentSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
         Turbolinks.visit('/#what-makes-us-different')
       }
     })
@@ -115,7 +118,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         testimonialsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
         Turbolinks.visit('/#testimonials-section')
       }
       

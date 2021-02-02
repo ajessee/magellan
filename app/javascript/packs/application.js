@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { navbarModule } from "../src/navbarModule"
-import { formModule } from "../src/formModule"
 import { googleAddressModule } from "../src/googleAutocomplete"
 
 Rails.start()
@@ -18,5 +17,4 @@ ActiveStorage.start()
 require("stylesheets/application.scss")
 
 navbarModule()
-formModule()
 googleAddressModule()

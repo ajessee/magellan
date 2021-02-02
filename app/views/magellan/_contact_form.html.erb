@@ -1,7 +1,7 @@
 <div class="flex flex-col rounded-lg dark:border-gray-600 overflow-hidden">
 
     <%= form_with model: Lead.new do |form| %>
-        <%= form.text_field :autocomplete, id: "autocomplete", class: "text-sm md:text-base py-3 px-6 bg-white dark:bg-gray-800 text-gray-700 outline-none placeholder-gray-500 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent lg:flex-grow text-center w-full", required: false, oninvalid: "this.setCustomValidity('Please enter your address. Start typing, and the address will be autocompleted for you.')", oninput: "this.setCustomValidity('')", placeholder: "Enter Your Address" %>
+        <%= form.text_field :autocomplete, id: "autocomplete", class: "text-sm md:text-base py-3 px-6 bg-white dark:bg-gray-800 text-gray-700 outline-none placeholder-gray-500 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent lg:flex-grow text-center w-full border-0", required: true, oninvalid: "this.setCustomValidity('Please enter your address. Start typing, and the address will be autocompleted for you.')", oninput: "this.setCustomValidity('')", placeholder: "Enter Your Address" %>
     <div class="hidden">
         <%= form.text_field :street_number %>
         <%= form.text_field :route %>
@@ -10,7 +10,7 @@
         <%= form.text_field :country %>
         <%= form.text_field :postal_code %>
     </div>
-    <%= form.submit "Get Your Cash Offer", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer" %>
+    <%= form.submit "Get Your Cash Offer", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-xs md:text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer" %>
     <% end %>
 </div>
 

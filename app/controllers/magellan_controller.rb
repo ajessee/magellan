@@ -5,4 +5,5 @@ class MagellanController < ApplicationController
 
   def faq
   end
+
 end
