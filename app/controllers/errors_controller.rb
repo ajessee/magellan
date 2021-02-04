@@ -7,7 +7,6 @@ class ErrorsController < ApplicationController
     @error_code = '400'
     respond_to do |format|
       format.html { render status: 400 }
-      format.json { render json: { error: 'Bad Request' }, status: 400 }
     end
   end
 
@@ -17,7 +16,6 @@ class ErrorsController < ApplicationController
     @error_code = '401'
     respond_to do |format|
       format.html { render status: 401 }
-      format.json { render json: { error: 'Unauthorized' }, status: 401 }
     end
   end
 
@@ -27,7 +25,6 @@ class ErrorsController < ApplicationController
     @error_code = '403'
     respond_to do |format|
       format.html { render status: 403 }
-      format.json { render json: { error: 'Forbidden' }, status: 403 }
     end
   end
 
@@ -37,7 +34,6 @@ class ErrorsController < ApplicationController
     @error_code = '404'
     respond_to do |format|
       format.html { render status: 404 }
-      format.json { render json: { error: 'Resource not found' }, status: 404 }
     end
   end
 
@@ -47,7 +43,6 @@ class ErrorsController < ApplicationController
     @error_code = '500'
     respond_to do |format|
       format.html { render status: 500 }
-      format.json { render json: { error: 'Internal Server Error' }, status: 500 }
     end
   end
 end

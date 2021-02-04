@@ -7,6 +7,11 @@ export function navbarModule() {
     const leadContactInfoPage = document.getElementById('lead-create-route')
     const leadContactDetailsPage = document.getElementById('lead-update-route')
     const leadCapturedPage = document.getElementById('lead-captured-route')
+    const badRequestPage = document.getElementById('bad-request-route')
+    const forbiddenPage = document.getElementById('forbidden-route')
+    const serverErrorPage = document.getElementById('server-error-route')
+    const notFoundPage = document.getElementById('not-found-route')
+    const unauthorizedPage = document.getElementById('unauthorized-route')
     const navbarHeader = document.getElementById('navbar-header')
     const footerSection = document.getElementById('footer-section')
     let navbarHeaderHeight = navbarHeader.offsetHeight
@@ -44,19 +49,16 @@ export function navbarModule() {
     }
     if (homeLandingPage) {
       console.log('Home Page Loaded')
-      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection]));
       handleResize(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
       faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, faqSection, false, []));
       handleResize(navbarHeader, faqSection, false, [])
     } else if (leadContactInfoPage) {
       console.log('Lead Contact Info Page Loaded')
       const leadContactInfoSection = document.getElementById('lead-contact-info-section')
       leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactInfoSection, false, []));
       handleResize(navbarHeader, leadContactInfoSection, false, [])
     } else if (leadContactDetailsPage) {
       console.log('Lead Contact Details Page Loaded')
@@ -68,8 +70,32 @@ export function navbarModule() {
       console.log('Thank You Page Loaded')
       const thankYouSection = document.getElementById('thank-you-section')
       thankYouSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      // window.addEventListener('resize', handleResize.bind(null, navbarHeader, thankYouSection, false, []));
       handleResize(navbarHeader, thankYouSection, false, [])
+    } else if (badRequestPage) {
+      console.log('Bad Request')
+      const badRequestSection = document.getElementById('bad-request-section')
+      badRequestSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      handleResize(navbarHeader, badRequestSection, false, [])
+    } else if (forbiddenPage) {
+      console.log('Forbidden Request')
+      const forbiddenSection = document.getElementById('forbidden-section')
+      forbiddenSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      handleResize(navbarHeader, forbiddenSection, false, [])
+    } else if (serverErrorPage) {
+      console.log('Server Error')
+      const serverErrorSection = document.getElementById('server-error-section')
+      serverErrorSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      handleResize(navbarHeader, serverErrorSection, false, [])
+    } else if (notFoundPage) {
+      console.log('Not Found Request')
+      const notFoundSection = document.getElementById('not-found-section')
+      notFoundSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      handleResize(navbarHeader, notFoundSection, false, [])
+    } else if (unauthorizedPage) {
+      console.log('Unauthorized Request')
+      const unauthorizedSection = document.getElementById('unauthorized-section')
+      unauthorizedSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
+      handleResize(navbarHeader, unauthorizedSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){
@@ -82,7 +108,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         html.scrollIntoView({behavior: "smooth", block: "start"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/')
       }
     })
@@ -91,7 +117,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         howItWorksSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#stress-free-selling-section')
       }
     })
@@ -100,7 +126,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         aboutUsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#about-us-section')
       }
     })
@@ -109,7 +135,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         differentSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#what-makes-us-different')
       }
     })
@@ -118,7 +144,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         testimonialsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage) {
+      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#testimonials-section')
       }
       

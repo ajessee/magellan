@@ -2,6 +2,14 @@ class LeadsController < ApplicationController
 
   def new
   end
+
+  def index
+    redirect_to root_path
+  end
+
+  def show
+    redirect_to root_path
+  end
   
   def create
     @lead = Lead.create(lead_params)
@@ -20,7 +28,7 @@ class LeadsController < ApplicationController
       @lead.save
       if (final_submit)
         @lead.create_zoho_lead
-        render 'lead_captured'
+        redirect_to thank_you_path
       end
     else
       render 'create'
@@ -28,6 +36,10 @@ class LeadsController < ApplicationController
   end
 
   def destroy
+  end
+
+  #custom routes
+  def lead_captured
   end
 
   def lead_params

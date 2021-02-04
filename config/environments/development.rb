@@ -11,6 +11,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  #custom error messages
+  config.exceptions_app = routes
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

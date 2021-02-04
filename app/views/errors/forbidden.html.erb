@@ -1,13 +1,23 @@
-<section class="http-error-container">
+<div id="forbidden-route" class="max-w-full">
 
-    <h1>That's a hard no from us</h1>
-    <p><%= @error_message %></p>
-  
-    <figure class="HTTP-status-svg">
-      <%= show_svg('403-Error.svg') %>
-    </figure>
-  
-    <%= link_to "Take Me Home", root_path %>
-    <h3>HTTP Status Code: <%= @error_code %></h3>
-  
-  </section>
+  <!-- Header -->
+  <%= render 'magellan/header' %>
+
+  <section id="forbidden-section" class="text-gray-600 body-font">
+  <div class="flex px-5 py-24 items-center justify-center flex-col">
+    <%= inline_svg_tag "bad_request.svg", class: 'h-56 md:h-80 w-auto stroke-current text-blue-600' %>
+    <div class="text-center lg:w-2/3 w-full">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Forbidden</h1>
+      <p class="mb-8 text-2xl leading-relaxed">Sorry, that's not allowed.</p>
+      <p class="mb-8 text-2xl leading-relaxed">HTTP Status Code: <%= @error_code %></p>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <%= render 'magellan/footer' %>
+
+</div>
+
+
+

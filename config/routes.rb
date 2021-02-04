@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   resources :users
+
+  # Leads
   resources :leads
+  get '/thank-you', to: 'leads#lead_captured'
 
   # Sessions
   get '/login', to: 'sessions#new'
@@ -31,4 +34,5 @@ Rails.application.routes.draw do
   get '/404', to: 'errors#not_found'
   get 'errors/internal_server_error'
   get '/500', to: 'errors#internal_server_error'
+  match "*path", to: "errors#not_found", via: :all
 end
