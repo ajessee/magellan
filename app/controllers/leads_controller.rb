@@ -43,6 +43,11 @@ class LeadsController < ApplicationController
   end
 
   def lead_params
-    params.require(:lead).permit(:first_name, :last_name, :email, :phone, :street_number, :route, :locality, :administrative_area_level_1, :country, :postal_code, :sale_time_frame, :sale_target_price, :seller_owner, :details, :final_submit)
+    input_params = params.require(:lead).permit(:first_name, :last_name, :email, :phone, :street_number, :address_line_2, :route, :locality, :administrative_area_level_1, :country, :postal_code, :sale_time_frame, :sale_target_price, :seller_owner, :details, :final_submit)
+    # parse sale target price from UI friendly currency string to int
+    if input_params["sale_target_price"]
+      input_params["sale_target_price"] = input_params["sale_target_price"].gsub(',', '').to_i
+    end
+    input_params
   end
 end

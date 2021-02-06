@@ -4,7 +4,7 @@ class Lead < ApplicationRecord
   # Regex to test email validity
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 
-  validates :email, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }, allow_nil: true
+  validates :email, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, allow_nil: true, allow_blank: true
 
   before_save :downcase_email
 
@@ -20,7 +20,7 @@ class Lead < ApplicationRecord
 
     lead_map = {
       'First_Name' => self.first_name,
-      'Last_Name' => self.last_name,
+      'Last_Name' => self.last_name.empty? ? '(No Last Name Provided)' : self.last_name,
       'Email' => self.email,
       'Phone' => self.phone,
       'Street' => "#{self.street_number} #{self.route}",

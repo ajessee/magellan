@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   # Leads
-  resources :leads
+  resources :leads, path: 'cash-offer'
   get '/thank-you', to: 'leads#lead_captured'
 
   # Sessions

@@ -30,7 +30,30 @@ export function navbarModule() {
     const differentSection = document.getElementById('what-makes-us-different')
     const testimonialsSection = document.getElementById('testimonials-section')
 
-    const handleResize = function(navbarHeader, section, isMainSection, scrollMarginSections){
+    const formatPrice = function(e) {
+      if (e.target.value != "") {
+        e.target.value = e.target.value.replace(/(?!\.)\D/g, "").replace(/(?<=\..*)\./g, "").replace(/(?<=\.\d\d).*/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+    }
+
+    const formatPhoneNumber = function(e) {
+      let phone = e.target.value.replace(/\D/g, '');
+      if (e.target.value.length > 14) {
+        e.target.value = e.target.value.slice(0, -1)
+        phone = e.target.value
+      }
+      const match = phone.match(/^(\d{1,3})(\d{0,3})(\d{0,4})$/);
+      if (match) {
+        phone = `(${match[1]}${match[2] ? ') ' : ''}${match[2]}${match[3] ? '-' : ''}${match[3]}`;
+      }
+      e.target.value = phone
+      if (e.target.validity.valid) {
+        const emailInput = document.getElementById('email-input')
+        emailInput.required = false
+      }
+    }
+
+    const resizePage = function(navbarHeader, section, isMainSection, scrollMarginSections){
       navbarHeaderHeight = navbarHeader.offsetHeight;
       let navbarHeaderHeightString = navbarHeaderHeight + 'px';
       section.style.marginTop = navbarHeaderHeightString
@@ -47,55 +70,63 @@ export function navbarModule() {
       mobileMenu.classList.toggle('hidden')
       mobileMenu.classList.toggle('md:block')
     }
+
     if (homeLandingPage) {
       console.log('Home Page Loaded')
-      handleResize(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
+      resizePage(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
       faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, faqSection, false, [])
+      resizePage(navbarHeader, faqSection, false, [])
     } else if (leadContactInfoPage) {
       console.log('Lead Contact Info Page Loaded')
       const leadContactInfoSection = document.getElementById('lead-contact-info-section')
+      const phoneInput = document.getElementById('phone-input')
+      phoneInput.addEventListener('input', formatPhoneNumber)
       leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, leadContactInfoSection, false, [])
+      resizePage(navbarHeader, leadContactInfoSection, false, [])
     } else if (leadContactDetailsPage) {
       console.log('Lead Contact Details Page Loaded')
       const leadContactDetailsSection = document.getElementById('lead-contact-details-section')
-      leadContactDetailsSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      window.addEventListener('resize', handleResize.bind(null, navbarHeader, leadContactDetailsSection, false, []));
-      handleResize(navbarHeader, leadContactDetailsSection, false, [])
+      const priceWantedInput = document.getElementById('price-wanted-input')
+      window.addEventListener('resize', resizePage.bind(null, navbarHeader, leadContactDetailsSection, false, []));
+      priceWantedInput.addEventListener('change', formatPrice)
+      priceWantedInput.addEventListener('click', formatPrice)
+      priceWantedInput.addEventListener('keyup', formatPrice)
+      priceWantedInput.addEventListener('input', formatPrice)
+      priceWantedInput.addEventListener('paste', formatPrice)
+      resizePage(navbarHeader, leadContactDetailsSection, false, [])
     } else if (leadCapturedPage) {
       console.log('Thank You Page Loaded')
       const thankYouSection = document.getElementById('thank-you-section')
       thankYouSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, thankYouSection, false, [])
+      resizePage(navbarHeader, thankYouSection, false, [])
     } else if (badRequestPage) {
       console.log('Bad Request')
       const badRequestSection = document.getElementById('bad-request-section')
       badRequestSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, badRequestSection, false, [])
+      resizePage(navbarHeader, badRequestSection, false, [])
     } else if (forbiddenPage) {
       console.log('Forbidden Request')
       const forbiddenSection = document.getElementById('forbidden-section')
       forbiddenSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, forbiddenSection, false, [])
+      resizePage(navbarHeader, forbiddenSection, false, [])
     } else if (serverErrorPage) {
       console.log('Server Error')
       const serverErrorSection = document.getElementById('server-error-section')
       serverErrorSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, serverErrorSection, false, [])
+      resizePage(navbarHeader, serverErrorSection, false, [])
     } else if (notFoundPage) {
       console.log('Not Found Request')
       const notFoundSection = document.getElementById('not-found-section')
       notFoundSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, notFoundSection, false, [])
+      resizePage(navbarHeader, notFoundSection, false, [])
     } else if (unauthorizedPage) {
       console.log('Unauthorized Request')
       const unauthorizedSection = document.getElementById('unauthorized-section')
       unauthorizedSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      handleResize(navbarHeader, unauthorizedSection, false, [])
+      resizePage(navbarHeader, unauthorizedSection, false, [])
     }
 
     mobileMenuButton.addEventListener('click', function(e){

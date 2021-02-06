@@ -10,14 +10,14 @@
           <%= form.text_field :last_name, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Last Name" %>
         </div>
         <div class="p-2">
-          <%= form.email_field :email, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Email", required: true, oninvalid: "this.setCustomValidity('Please enter an email address so we can send you your offer!", oninput: "this.setCustomValidity('')" %>
+          <%= form.email_field :email, id: "email-input", class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Email", required: true, oninvalid: "this.setCustomValidity('Please enter an email address so we can send you your offer!')", oninput: "this.setCustomValidity('')" %>
           <% if @lead.errors.any? %>
-            <div class="error_explanation">Oops...looks like we already have your email on file. Please call us at (832) 508-6326.</div>
+            <div class="error_explanation">Oops... Please call us at (832) 508-6326.</div>
             <div class="error_explanation">Error: <%= @lead.errors.full_messages_for(:email).join(',')%></div>
           <% end %>
         </div>
         <div class="p-2">
-          <%= form.telephone_field :phone, class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Phone" %>
+          <%= form.telephone_field :phone, id: "phone-input", class: "block border border-gray-300 w-full p-3 rounded mb-4", placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}", oninvalid: "this.setCustomValidity('Please enter a phone number so we can call you with your offer!", oninput: "this.setCustomValidity('')" %>
         </div>
         <%= form.submit "Get Your Cash Offer", class: "text-sm md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded-lg" %>
       <% end %>
