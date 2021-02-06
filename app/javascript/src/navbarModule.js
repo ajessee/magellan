@@ -89,6 +89,7 @@ export function navbarModule() {
     } else if (leadContactDetailsPage) {
       console.log('Lead Contact Details Page Loaded')
       const leadContactDetailsSection = document.getElementById('lead-contact-details-section')
+      leadContactDetailsSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       const priceWantedInput = document.getElementById('price-wanted-input')
       window.addEventListener('resize', resizePage.bind(null, navbarHeader, leadContactDetailsSection, false, []));
       priceWantedInput.addEventListener('change', formatPrice)
