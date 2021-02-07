@@ -54,6 +54,8 @@ export function navbarModule() {
     }
 
     const resizePage = function(navbarHeader, section, isMainSection, scrollMarginSections){
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
       navbarHeaderHeight = navbarHeader.offsetHeight;
       let navbarHeaderHeightString = navbarHeaderHeight + 'px';
       section.style.marginTop = navbarHeaderHeightString
@@ -139,7 +141,6 @@ export function navbarModule() {
       e.preventDefault();
       if (homeLandingPage) {
         html.scrollIntoView({behavior: "smooth", block: "start"})
-        toggleMobileMenu();
       } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/')
       }

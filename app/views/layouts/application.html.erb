@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>
-      <%= full_title(yield(:title)) %>
-    </title>
+    <title><%= full_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +10,6 @@
     <%= render 'layouts/google_address' %>
     <%= render 'layouts/google_analytics' %>
     <%= render 'layouts/pixel_tracker' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
