@@ -32,11 +32,25 @@ export function navbarModule() {
 
     const formatPrice = function(e) {
       if (e.target.value != "") {
-        e.target.value = e.target.value.replace(/(?!\.)\D/g, "").replace(/(?<=\..*)\./g, "").replace(/(?<=\.\d\d).*/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        e.target.value = e.target.value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+    }
+
+    const setEmailErrorMessage = function(e) {
+      e.target.setCustomValidity('')
+      if (!e.target.validity.valid && e.target.value.length > 0) {
+        e.target.setCustomValidity('Please enter a valid email address so we can send you your offer!')
+      } else if (!e.target.validity.valid && e.target.value.length == 0) {
+        e.target.setCustomValidity('Please enter an email address so we can send you your offer!')
+      } else if (e.target.validity.valid) {
+        e.target.setCustomValidity('')
       }
     }
 
     const formatPhoneNumber = function(e) {
+      e.target.setCustomValidity('')
+      const emailInput = document.getElementById('email-input')
+      emailInput.required = false
       let phone = e.target.value.replace(/\D/g, '');
       if (e.target.value.length > 14) {
         e.target.value = e.target.value.slice(0, -1)
@@ -48,8 +62,16 @@ export function navbarModule() {
       }
       e.target.value = phone
       if (e.target.validity.valid) {
-        const emailInput = document.getElementById('email-input')
-        emailInput.required = false
+        emailInput.setCustomValidity('')
+      } else {
+        if (e.target.value.length == 0) {
+          emailInput.required = true
+          emailInput.setCustomValidity('Please enter an email address so we can send you your offer!')
+          e.target.setCustomValidity('Please enter a phone number so we can call you with your offer!')
+        } else {
+          emailInput.setCustomValidity('')
+          e.target.setCustomValidity('Please enter a valid phone number so we can call you with your offer!')
+        }
       }
     }
 
@@ -85,6 +107,9 @@ export function navbarModule() {
       console.log('Lead Contact Info Page Loaded')
       const leadContactInfoSection = document.getElementById('lead-contact-info-section')
       const phoneInput = document.getElementById('phone-input')
+      const emailInput = document.getElementById('email-input')
+      emailInput.addEventListener('input', setEmailErrorMessage)
+      emailInput.setCustomValidity('Please enter an email address so we can send you your offer!')
       phoneInput.addEventListener('input', formatPhoneNumber)
       leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       resizePage(navbarHeader, leadContactInfoSection, false, [])
