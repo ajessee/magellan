@@ -1,3 +1,15 @@
+@supports (-webkit-touch-callout : none) {
+  #parallax-1, #parallax-2, #parallax-3 {
+    background-attachment: scroll
+  }
+}
+
+@supports not (-webkit-touch-callout : none) {
+  #parallax-1, #parallax-2, #parallax-3 {
+    background-attachment: fixed;
+  }
+}
+
 .field_with_errors input {
   border: 1px red solid;
 }
