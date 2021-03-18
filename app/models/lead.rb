@@ -28,10 +28,6 @@ class Lead < ApplicationRecord
       'State' => self.administrative_area_level_1,
       'Country' => self.country,
       'Zip_Code' => self.postal_code,
-      'How_quickly_do_you_need_to_sell' => self.sale_time_frame,
-      'Price_Wanted' => self.sale_target_price,
-      'Is_the_seller_the_owner' => self.seller_owner,
-      'Seller_Motivation' => self.details,
       'Lead_Source' => 'HomeBuyerWithAHeart.com',
       'Lead_Status' => 'Active'
     }

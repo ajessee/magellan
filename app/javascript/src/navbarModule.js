@@ -4,8 +4,6 @@ export function navbarModule() {
     console.log('Nav Bar Module')
     const homeLandingPage = document.getElementById('home-route')
     const faqLandingPage = document.getElementById('faq-route')
-    const leadContactInfoPage = document.getElementById('lead-create-route')
-    const leadContactDetailsPage = document.getElementById('lead-update-route')
     const leadCapturedPage = document.getElementById('lead-captured-route')
     const badRequestPage = document.getElementById('bad-request-route')
     const forbiddenPage = document.getElementById('forbidden-route')
@@ -30,27 +28,8 @@ export function navbarModule() {
     const differentSection = document.getElementById('what-makes-us-different')
     const testimonialsSection = document.getElementById('testimonials-section')
 
-    const formatPrice = function(e) {
-      if (e.target.value != "") {
-        e.target.value = e.target.value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      }
-    }
-
-    const setEmailErrorMessage = function(e) {
-      e.target.setCustomValidity('')
-      if (!e.target.validity.valid && e.target.value.length > 0) {
-        e.target.setCustomValidity('Please enter a valid email address so we can send you your offer!')
-      } else if (!e.target.validity.valid && e.target.value.length == 0) {
-        e.target.setCustomValidity('Please enter an email address so we can send you your offer!')
-      } else if (e.target.validity.valid) {
-        e.target.setCustomValidity('')
-      }
-    }
-
     const formatPhoneNumber = function(e) {
       e.target.setCustomValidity('')
-      const emailInput = document.getElementById('email-input')
-      emailInput.required = false
       let phone = e.target.value.replace(/\D/g, '');
       if (e.target.value.length > 14) {
         e.target.value = e.target.value.slice(0, -1)
@@ -61,18 +40,13 @@ export function navbarModule() {
         phone = `(${match[1]}${match[2] ? ') ' : ''}${match[2]}${match[3] ? '-' : ''}${match[3]}`;
       }
       e.target.value = phone
-      if (e.target.validity.valid) {
-        emailInput.setCustomValidity('')
-      } else {
+      if (!e.target.validity.valid) {
         if (e.target.value.length == 0) {
-          emailInput.required = true
-          emailInput.setCustomValidity('Please enter an email address so we can send you your offer!')
           e.target.setCustomValidity('Please enter a phone number so we can call you with your offer!')
         } else {
-          emailInput.setCustomValidity('')
           e.target.setCustomValidity('Please enter a valid phone number so we can call you with your offer!')
         }
-      }
+      } 
     }
 
     const resizePage = function(navbarHeader, section, isMainSection, scrollMarginSections){
@@ -97,34 +71,15 @@ export function navbarModule() {
 
     if (homeLandingPage) {
       console.log('Home Page Loaded')
+      const phoneInput = document.getElementById('lead_phone')
+      phoneInput.setCustomValidity('Please enter a phone number so we can call you with your offer!')
+      phoneInput.addEventListener('input', formatPhoneNumber)
       resizePage(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
     } else if (faqLandingPage) {
       console.log('FAQ Page Loaded')
       const faqSection = document.getElementById('faq-section')
       faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
       resizePage(navbarHeader, faqSection, false, [])
-    } else if (leadContactInfoPage) {
-      console.log('Lead Contact Info Page Loaded')
-      const leadContactInfoSection = document.getElementById('lead-contact-info-section')
-      const phoneInput = document.getElementById('phone-input')
-      const emailInput = document.getElementById('email-input')
-      emailInput.addEventListener('input', setEmailErrorMessage)
-      emailInput.setCustomValidity('Please enter an email address so we can send you your offer!')
-      phoneInput.addEventListener('input', formatPhoneNumber)
-      leadContactInfoSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, leadContactInfoSection, false, [])
-    } else if (leadContactDetailsPage) {
-      console.log('Lead Contact Details Page Loaded')
-      const leadContactDetailsSection = document.getElementById('lead-contact-details-section')
-      leadContactDetailsSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      const priceWantedInput = document.getElementById('price-wanted-input')
-      window.addEventListener('resize', resizePage.bind(null, navbarHeader, leadContactDetailsSection, false, []));
-      priceWantedInput.addEventListener('change', formatPrice)
-      priceWantedInput.addEventListener('click', formatPrice)
-      priceWantedInput.addEventListener('keyup', formatPrice)
-      priceWantedInput.addEventListener('input', formatPrice)
-      priceWantedInput.addEventListener('paste', formatPrice)
-      resizePage(navbarHeader, leadContactDetailsSection, false, [])
     } else if (leadCapturedPage) {
       console.log('Thank You Page Loaded')
       const thankYouSection = document.getElementById('thank-you-section')
@@ -207,6 +162,26 @@ export function navbarModule() {
       }
       
     })
+
+    // Pulled out now that not using multi page form flow. Here to add back in if needed.
+    
+    // const formatPrice = function(e) {
+    //   if (e.target.value != "") {
+    //     e.target.value = e.target.value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //   }
+    // }
+
+    // const setEmailErrorMessage = function(e) {
+    //   e.target.setCustomValidity('')
+    //   if (!e.target.validity.valid && e.target.value.length > 0) {
+    //     e.target.setCustomValidity('Please enter a valid email address so we can send you your offer!')
+    //   } else if (!e.target.validity.valid && e.target.value.length == 0) {
+    //     e.target.setCustomValidity('Please enter an email address so we can send you your offer!')
+    //   } else if (e.target.validity.valid) {
+    //     e.target.setCustomValidity('')
+    //   }
+    // }
+
   });
 
 }

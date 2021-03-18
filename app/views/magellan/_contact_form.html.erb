@@ -1,7 +1,8 @@
-<div class="flex flex-col rounded-lg dark:border-gray-600 overflow-hidden">
-
-    <%= form_with model: Lead.new do |form| %>
-        <%= form.text_field :autocomplete, id: "autocomplete", class: "text-xs md:text-base py-3 px-6 bg-white dark:bg-gray-800 text-gray-700 outline-none placeholder-gray-500 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent lg:flex-grow text-center w-full border-0", required: true, oninvalid: "this.setCustomValidity('Please enter your address. Start typing, and the address will be autocompleted for you.')", oninput: "this.setCustomValidity('')", placeholder: "Enter Your Address" %>
+<div class="flex flex-col dark:border-gray-600 overflow-hidden">
+    <%= form_with model: @lead || Lead.new do |form| %>
+        <%= form.text_field :autocomplete, id: "autocomplete", class: "block border border-gray-300 w-full p-3 rounded mb-4 shadow-sm text-center md:text-left text-xs md:text-base", required: true, oninvalid: "this.setCustomValidity('Please enter your address. Start typing, and the address will be autocompleted for you.')", oninput: "this.setCustomValidity('')", placeholder: "Address" %>
+        <%= form.text_field :first_name, class: "block border border-gray-300 w-full p-3 rounded mb-4 shadow-sm text-center md:text-left text-xs md:text-base", placeholder: "Name" %>
+        <%= form.telephone_field :phone, class: "block border border-gray-300 w-full p-3 rounded mb-4 shadow-sm text-center md:text-left text-xs md:text-base", placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
     <div class="hidden">
         <%= form.text_field :street_number %>
         <%= form.text_field :route %>
@@ -9,8 +10,10 @@
         <%= form.text_field :administrative_area_level_1 %>
         <%= form.text_field :country %>
         <%= form.text_field :postal_code %>
+        <%= form.hidden_field :last_name %>
+        <%= form.hidden_field :email %>
     </div>
-    <%= form.submit "Get Your Cash Offer", class: "text-xs md:text-base py-3 px-4 bg-blue-600 text-gray-100 text-xs md:text-sm font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer" %>
-    <% end %>
+        <%= form.submit "Get Your Cash Offer", id: "final-lead-form-submit", class: "text-xs md:text-sm py-3 px-2 md:px-4 bg-blue-600 text-gray-100 font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded-lg shadow-sm" %>
+      <% end %>
 </div>
 
