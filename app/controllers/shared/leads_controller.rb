@@ -11,7 +11,7 @@ module Shared
       @lead = Lead.create(lead_params)
       if @lead.save
         @lead.create_zoho_lead
-        redirect_to(thank_you_path)
+        redirect_to(lead_thank_you_path)
       else
         redirect_to(root)
       end
