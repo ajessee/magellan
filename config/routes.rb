@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     # end
   end
 
-  constraints DomainConstraint.new("homebuyerwithaheart.com") do
+  constraints DomainConstraint.new("magellan-investments.herokuapp.com") do
     scope module: :home_buyer_with_a_heart do
       root "main#home"
       get "/faq", to: "main#faq"
@@ -72,7 +72,17 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints DomainConstraint.new("buyyourhousetexas.com") do
+  constraints DomainConstraint.new("www.homebuyerwithaheart.com") do
+    scope module: :home_buyer_with_a_heart do
+      root "main#home"
+      get "/faq", to: "main#faq"
+    end
+    scope module: :shared do
+      concerns :shared_routes
+    end
+  end
+
+  constraints DomainConstraint.new("www.buyyourhousetexas.com") do
     scope module: :buy_your_house_texas do
       root "main#home", as: "buy_texas_root"
       get "/test", to: "main#test"
