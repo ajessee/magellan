@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   constraints DomainConstraint.new("magellan-investments.herokuapp.com") do
     scope module: :home_buyer_with_a_heart do
       root "main#home"
-      get "/faq", to: "main#faq"
+      get "/faq", to: "main#faq", as: "heroku_root"
     end
     scope module: :shared do
       concerns :shared_routes
