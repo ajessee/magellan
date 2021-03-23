@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 
   concern :shared_routes do
     # Leads
-    resources :leads, only: [:create], path: "offer" do 
-      get "/thank-you", to: "leads#lead_captured"
-    end
+    resources :leads, only: [:create]
+    get "/thank-you", to: "leads#lead_captured"
 
     # Users
     resources :users do 
