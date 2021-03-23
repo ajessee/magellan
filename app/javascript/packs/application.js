@@ -7,8 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import { navbarModule } from "../src/navbarModule"
 import { googleAddressModule } from "../src/googleAutocomplete"
+import { googleAnalyticsCustomEvents } from "../src/googleAnalyticsCustomEvents"
+import { navigationModule } from "../src/navigationModule"
+import { resizePageModule } from "../src/resizePageModule"
 
 Rails.start()
 Turbolinks.start()
@@ -16,5 +18,7 @@ ActiveStorage.start()
 
 require("stylesheets/application.scss")
 
-navbarModule()
 googleAddressModule()
+googleAnalyticsCustomEvents()
+navigationModule()
+resizePageModule()

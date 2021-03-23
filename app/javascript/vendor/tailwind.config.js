@@ -4,102 +4,58 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontSize: {
+      'tiny': '.675rem',
+      'xs': '.75rem',
+      'sm': '.875rem',
+      'base': '1rem',
+      'lg': '1.125rem',
+      'xl': '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      '7xl': '5rem',
+      '8xl': '6rem',
+      '9xl': '7rem',
+      '10xl': '8rem',
+      '11xl': '9rem',
+      '12xl': '10rem',
+      '13xl': '11rem',
+      '14xl': '12rem',
+      '15xl': '13rem',
+      '16xl': '14rem',
+      '17xl': '15rem',
+      '18xl': '16rem',
+      '18-rem': ['18rem', {
+        lineHeight: '0rem'
+      }],
+      '20-rem': ['20rem', {
+        lineHeight: '0rem'
+      }],
+      '22-rem': ['22rem', {
+        lineHeight: '0rem'
+      }],
+
+
+    },
     extend: {
-      gridTemplateColumns: {
-        // Header specific column configuration
-       'header': '10% 90%',
-       '16': 'repeat(16, minmax(0, 1fr))',
-       '32': 'repeat(32, minmax(0, 1fr))'
+      minHeight: {
+        '0': '0',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/5': '60%',
+        '3/4': '75%',
+        'full': '100%',
       },
-      gridTemplateRows: {
-        // Header specific column configuration
-       'header': 'auto auto',
-       '8': 'repeat(8, minmax(0, 1fr))',
-       '16': 'repeat(16, minmax(0, 1fr))',
-       '32': 'repeat(32, minmax(0, 1fr))'
+      height: {
+        'half': '50vh',
+        'three-quarters': '75vh',
       },
-      gridRow: {
-        'span-8': 'span 8 / span 8',
-        'span-9': 'span 9 / span 9',
-        'span-10': 'span 10 / span 10',
-        'span-11': 'span 11 / span 11',
-        'span-12': 'span 12 / span 12',
-        'span-13': 'span 13 / span 13',
-        'span-14': 'span 14 / span 14',
-        'span-15': 'span 15 / span 15',
-        'span-16': 'span 16 / span 16',
-        'span-17': 'span 17 / span 17',
-        'span-18': 'span 18 / span 18',
-        'span-19': 'span 19 / span 19',
-        'span-20': 'span 20 / span 20',
-        'span-21': 'span 21 / span 21',
-        'span-22': 'span 22 / span 22',
-        'span-23': 'span 23 / span 23',
-        'span-24': 'span 24 / span 24',
-        'span-25': 'span 25 / span 25',
-        'span-26': 'span 26 / span 26',
-        'span-27': 'span 27 / span 27',
-        'span-28': 'span 28 / span 28',
-        'span-29': 'span 29 / span 29',
-        'span-30': 'span 30 / span 30'
+      screens: {
+        '3xl': '2000px',
       },
-      gridRowStart: {
-        '8': '8',
-        '9': '9',
-        '10': '10',
-        '11': '11',
-        '12': '12',
-        '13': '13',
-        '14': '14',
-        '15': '16',
-        '17': '17',
-        '18': '18',
-        '19': '19',
-        '20': '20',
-        '21': '21',
-        '22': '22'
-      },
-      gridColumn: {
-        'span-8': 'span 8 / span 8',
-        'span-9': 'span 9 / span 9',
-        'span-10': 'span 10 / span 10',
-        'span-11': 'span 11 / span 11',
-        'span-12': 'span 12 / span 12',
-        'span-13': 'span 13 / span 13',
-        'span-14': 'span 14 / span 14',
-        'span-15': 'span 15 / span 15',
-        'span-16': 'span 16 / span 16',
-        'span-17': 'span 17 / span 17',
-        'span-18': 'span 18 / span 18',
-        'span-19': 'span 19 / span 19',
-        'span-20': 'span 20 / span 20',
-        'span-21': 'span 21 / span 21',
-        'span-22': 'span 22 / span 22',
-        'span-23': 'span 23 / span 23',
-        'span-24': 'span 24 / span 24',
-        'span-25': 'span 25 / span 25',
-        'span-26': 'span 26 / span 26',
-        'span-27': 'span 27 / span 27',
-        'span-28': 'span 28 / span 28',
-        'span-29': 'span 29 / span 29',
-        'span-30': 'span 30 / span 30'
-      },
-      gridColumnStart: {
-        '8': '8',
-        '9': '9',
-        '10': '10',
-        '11': '11',
-        '12': '12',
-        '13': '13',
-        '14': '14',
-        '15': '16',
-        '17': '17',
-        '18': '18',
-        '19': '19',
-        '20': '20',
-        '21': '21',
-        '22': '22'
-      }
     },
     fontFamily: {
       'sans': ['Lato']

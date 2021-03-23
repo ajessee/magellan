@@ -1,1 +1,3 @@
+<% if Rails.env.production? || Rails.env.development? %>
 <link href="https://fonts.googleapis.com/css?family=Lato:wght@300?key=<%= Rails.application.credentials.google_fonts_api_key%>" rel="stylesheet">
+<% end %>

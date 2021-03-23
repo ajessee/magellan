@@ -1,7 +1,7 @@
-export function navbarModule() {
+export function navigationModule() {
 
   document.addEventListener("turbolinks:load", function(){
-    console.log('Nav Bar Module')
+    console.log('Navigation Module')
     const homeLandingPage = document.getElementById('home-route')
     const faqLandingPage = document.getElementById('faq-route')
     const leadCapturedPage = document.getElementById('lead-captured-route')
@@ -10,10 +10,6 @@ export function navbarModule() {
     const serverErrorPage = document.getElementById('server-error-route')
     const notFoundPage = document.getElementById('not-found-route')
     const unauthorizedPage = document.getElementById('unauthorized-route')
-    const navbarHeader = document.getElementById('navbar-header')
-    const footerSection = document.getElementById('footer-section')
-    let navbarHeaderHeight = navbarHeader.offsetHeight
-    let footerSectionHeight = footerSection.offsetHeight
     const html = document.querySelector('html') 
     const mainLink = document.getElementById('main-link')
     const howItWorksLink = document.getElementById('how-it-works-link')
@@ -23,10 +19,11 @@ export function navbarModule() {
     const mobileMenu = document.getElementById('mobile-menu')
     const mobileMenuButton = document.getElementById('mobile-menu-button')
     const howItWorksSection = document.getElementById('stress-free-selling-section')
-    const heroSection = document.getElementById('landing-section')
     const aboutUsSection = document.getElementById('about-us-section')
     const differentSection = document.getElementById('what-makes-us-different')
     const testimonialsSection = document.getElementById('testimonials-section')
+    const getOfferButtons = document.querySelectorAll('.get-offer-buttons')
+    const mainGetOfferButton = document.getElementById('final-lead-form-submit')
 
     const formatPhoneNumber = function(e) {
       e.target.setCustomValidity('')
@@ -49,67 +46,17 @@ export function navbarModule() {
       } 
     }
 
-    const resizePage = function(navbarHeader, section, isMainSection, scrollMarginSections){
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-      navbarHeaderHeight = navbarHeader.offsetHeight;
-      let navbarHeaderHeightString = navbarHeaderHeight + 'px';
-      section.style.marginTop = navbarHeaderHeightString
-      if (isMainSection) {
-        section.style.height = (window.innerHeight - navbarHeaderHeight) + 'px';
-      }
-      if (scrollMarginSections) {
-        scrollMarginSections.forEach(scrollSection => {
-          scrollSection.style.scrollMargin = navbarHeaderHeightString
-        });
-      }
-    }
-    const toggleMobileMenu = function() {
-      mobileMenu.classList.toggle('hidden')
-      mobileMenu.classList.toggle('md:block')
-    }
-
+    
     if (homeLandingPage) {
       console.log('Home Page Loaded')
       const phoneInput = document.getElementById('lead_phone')
       phoneInput.setCustomValidity('Please enter a phone number so we can call you with your offer!')
       phoneInput.addEventListener('input', formatPhoneNumber)
-      resizePage(navbarHeader, heroSection, true, [howItWorksSection, aboutUsSection, differentSection, testimonialsSection])
-    } else if (faqLandingPage) {
-      console.log('FAQ Page Loaded')
-      const faqSection = document.getElementById('faq-section')
-      faqSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, faqSection, false, [])
-    } else if (leadCapturedPage) {
-      console.log('Thank You Page Loaded')
-      const thankYouSection = document.getElementById('thank-you-section')
-      thankYouSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, thankYouSection, false, [])
-    } else if (badRequestPage) {
-      console.log('Bad Request')
-      const badRequestSection = document.getElementById('bad-request-section')
-      badRequestSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, badRequestSection, false, [])
-    } else if (forbiddenPage) {
-      console.log('Forbidden Request')
-      const forbiddenSection = document.getElementById('forbidden-section')
-      forbiddenSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, forbiddenSection, false, [])
-    } else if (serverErrorPage) {
-      console.log('Server Error')
-      const serverErrorSection = document.getElementById('server-error-section')
-      serverErrorSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, serverErrorSection, false, [])
-    } else if (notFoundPage) {
-      console.log('Not Found Request')
-      const notFoundSection = document.getElementById('not-found-section')
-      notFoundSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, notFoundSection, false, [])
-    } else if (unauthorizedPage) {
-      console.log('Unauthorized Request')
-      const unauthorizedSection = document.getElementById('unauthorized-section')
-      unauthorizedSection.style.minHeight = (window.innerHeight - navbarHeaderHeight - footerSectionHeight) + 'px';
-      resizePage(navbarHeader, unauthorizedSection, false, [])
+    } 
+    
+    const toggleMobileMenu = function() {
+      mobileMenu.classList.toggle('hidden')
+      mobileMenu.classList.toggle('md:block')
     }
 
     mobileMenuButton.addEventListener('click', function(e){
@@ -121,7 +68,7 @@ export function navbarModule() {
       e.preventDefault();
       if (homeLandingPage) {
         html.scrollIntoView({behavior: "smooth", block: "start"})
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/')
       }
     })
@@ -130,7 +77,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         howItWorksSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#stress-free-selling-section')
       }
     })
@@ -139,7 +86,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         aboutUsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#about-us-section')
       }
     })
@@ -148,7 +95,7 @@ export function navbarModule() {
       if (homeLandingPage) {
         differentSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#what-makes-us-different')
       }
     })
@@ -157,10 +104,24 @@ export function navbarModule() {
       if (homeLandingPage) {
         testimonialsSection.scrollIntoView({behavior: "smooth"})
         toggleMobileMenu();
-      } else if (faqLandingPage || leadContactInfoPage || leadContactDetailsPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
         Turbolinks.visit('/#testimonials-section')
       }
       
+    })
+
+    getOfferButtons.forEach(button => {
+      button.addEventListener('click', function(e){
+        e.preventDefault();
+        if (homeLandingPage) {
+          setTimeout(function() {
+            mainGetOfferButton.click()
+        }, 1000);
+          html.scrollIntoView({behavior: "smooth", block: "start"})
+        } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+          Turbolinks.visit('/')
+        }
+      })
     })
 
     // Pulled out now that not using multi page form flow. Here to add back in if needed.

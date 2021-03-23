@@ -1,8 +1,8 @@
 <div class="flex flex-col dark:border-gray-600 overflow-hidden">
-    <%= form_with model: @lead || Lead.new do |form| %>
-        <%= form.text_field :autocomplete, id: "autocomplete", class: "block border border-gray-300 w-full p-1 md:p-3 rounded mb-2 md:mb-4 shadow-sm text-center md:text-left text-xs md:text-base", required: true, oninvalid: "this.setCustomValidity('Please enter your address. Start typing, and the address will be autocompleted for you.')", oninput: "this.setCustomValidity('')", placeholder: "Address" %>
-        <%= form.text_field :first_name, class: "block border border-gray-300 w-full p-1 md:p-3 rounded mb-2 md:mb-4 shadow-sm text-center md:text-left text-xs md:text-base", placeholder: "Name" %>
-        <%= form.telephone_field :phone, class: "block border border-gray-300 w-full p-1 md:p-3 rounded mb-2 md:mb-4 shadow-sm text-center md:text-left text-xs md:text-base", placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
+    <%= form_with model: @lead || Lead.new, id: 'lead-form' do |form| %>
+        <%= form.text_field :autocomplete, id: "autocomplete", class: "block border border-gray-300 w-full p-1 rounded mb-1 md:mb-2 shadow-sm text-center text-tiny md:mb-4 md:p-3 md:text-base lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl", required: true, oninvalid: "this.setCustomValidity('Start typing your address and we will provide a list of matching addresses you can choose from.')", oninput: "this.setCustomValidity('')", placeholder: "Address" %>
+        <%= form.text_field :first_name, class: "block border border-gray-300 w-full p-1 rounded mb-1 md:mb-2 shadow-sm text-center text-tiny md:mb-4 md:p-3 md:text-base lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl", placeholder: "Name" %>
+        <%= form.telephone_field :phone, class: "block border border-gray-300 w-full p-1 rounded mb-1 md:mb-2 shadow-sm text-center text-tiny md:mb-4 md:p-3 md:text-base lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl", placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
     <div class="hidden">
         <%= form.text_field :street_number %>
         <%= form.text_field :route %>
@@ -13,7 +13,7 @@
         <%= form.hidden_field :last_name %>
         <%= form.hidden_field :email %>
     </div>
-        <%= form.submit "Get Your Cash Offer", id: "final-lead-form-submit", class: "text-xs md:text-sm py-1 md:py-3 px-2 md:px-4 bg-blue-600 text-gray-100 font-medium tracking-wider md:uppercase hover:bg-blue-400 focus:bg-gray-600 focus:outline-none lg:flex-grow flex-initial w-full cursor-pointer rounded shadow-sm" %>
+        <%= form.submit "Get Your Cash Offer", id: "final-lead-form-submit", class: "text-tiny py-1 px-2 bg-blue-600 text-gray-100 font-medium tracking-wider flex-initial w-full cursor-pointer rounded shadow-sm text-center hover:bg-blue-400 focus:bg-gray-600 focus:outline-none md:text-sm lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl md:py-3 md:px-4" %>
       <% end %>
 </div>
 
