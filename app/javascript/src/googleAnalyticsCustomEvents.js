@@ -14,24 +14,24 @@ export function googleAnalyticsCustomEvents() {
       const phoneField = document.getElementById('lead_phone')
 
       autoCompleteField.addEventListener('place_changed', function(e){
-        gtag('event', 'autocomplete_field_filled')
+        gtag('event', 'select_content', {'content_type': 'Address field autocompleted'})
       })
 
       nameField.addEventListener('change', function(e){
-        gtag('event', 'name_field_filled')
+        gtag('event', 'select_content', {'content_type': 'Name field filled out'})
       })
 
       phoneField.addEventListener('change', function(e){
-        gtag('event', 'phone_field_filled')
+        gtag('event', 'select_content', {'content_type': 'Phone field filled out'})
       })
 
       leadForm.addEventListener('submit', function(e){
-        gtag('event', 'get_offer_form_submitted')
+        gtag('event', 'generate_lead')
       })
 
       getOfferButtons.forEach(button => {
         button.addEventListener('click', function(e){
-          gtag('event', 'prelim_get_offer_button')
+          gtag('event', 'select_content', {'content_type': 'Clicked on get offer button in sections'})
         })
       })
     }
