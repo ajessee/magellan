@@ -1,29 +1,16 @@
 export function navigationModule() {
 
   document.addEventListener("turbolinks:load", function(){
+
     console.log('Navigation Module')
+
     const homeLandingPage = document.getElementById('home-route')
-    const faqLandingPage = document.getElementById('faq-route')
-    const leadCapturedPage = document.getElementById('lead-captured-route')
-    const badRequestPage = document.getElementById('bad-request-route')
-    const forbiddenPage = document.getElementById('forbidden-route')
-    const serverErrorPage = document.getElementById('server-error-route')
-    const notFoundPage = document.getElementById('not-found-route')
-    const unauthorizedPage = document.getElementById('unauthorized-route')
     const html = document.querySelector('html') 
-    const mainLink = document.getElementById('main-link')
-    const howItWorksLink = document.getElementById('how-it-works-link')
-    const aboutUsLink = document.getElementById('about-us-link')
-    const differentLink = document.getElementById('different-link')
-    const testimonialsLink = document.getElementById('testimonials-link')
     const mobileMenu = document.getElementById('mobile-menu')
     const mobileMenuButton = document.getElementById('mobile-menu-button')
-    const howItWorksSection = document.getElementById('stress-free-selling-section')
-    const aboutUsSection = document.getElementById('about-us-section')
-    const differentSection = document.getElementById('what-makes-us-different')
-    const testimonialsSection = document.getElementById('testimonials-section')
     const getOfferButtons = document.querySelectorAll('.get-offer-buttons')
     const mainGetOfferButton = document.getElementById('final-lead-form-submit')
+    const pageLinks = document.querySelectorAll("a[id$='link']")
 
     const formatPhoneNumber = function(e) {
       e.target.setCustomValidity('')
@@ -46,7 +33,11 @@ export function navigationModule() {
       } 
     }
 
-    
+    const toggleMobileMenu = function() {
+      mobileMenu.classList.toggle('hidden')
+      mobileMenu.classList.toggle('md:block')
+    }
+
     if (homeLandingPage) {
       console.log('Home Page Loaded')
       const phoneInput = document.getElementById('lead_phone')
@@ -54,60 +45,30 @@ export function navigationModule() {
       phoneInput.addEventListener('input', formatPhoneNumber)
     } 
     
-    const toggleMobileMenu = function() {
-      mobileMenu.classList.toggle('hidden')
-      mobileMenu.classList.toggle('md:block')
-    }
-
     mobileMenuButton.addEventListener('click', function(e){
       e.preventDefault();
       toggleMobileMenu();
     })
 
-    mainLink.addEventListener('click', function(e){
-      e.preventDefault();
-      if (homeLandingPage) {
-        html.scrollIntoView({behavior: "smooth", block: "start"})
-      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
-        Turbolinks.visit('/')
-      }
-    })
-    howItWorksLink.addEventListener('click', function(e){
-      e.preventDefault();
-      if (homeLandingPage) {
-        howItWorksSection.scrollIntoView({behavior: "smooth"})
-        toggleMobileMenu();
-      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
-        Turbolinks.visit('/#stress-free-selling-section')
-      }
-    })
-    aboutUsLink.addEventListener('click', function(e){
-      e.preventDefault();
-      if (homeLandingPage) {
-        aboutUsSection.scrollIntoView({behavior: "smooth"})
-        toggleMobileMenu();
-      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
-        Turbolinks.visit('/#about-us-section')
-      }
-    })
-    differentLink.addEventListener('click', function(e){
-      e.preventDefault();
-      if (homeLandingPage) {
-        differentSection.scrollIntoView({behavior: "smooth"})
-        toggleMobileMenu();
-      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
-        Turbolinks.visit('/#what-makes-us-different')
-      }
-    })
-    testimonialsLink.addEventListener('click', function(e){
-      e.preventDefault();
-      if (homeLandingPage) {
-        testimonialsSection.scrollIntoView({behavior: "smooth"})
-        toggleMobileMenu();
-      } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
-        Turbolinks.visit('/#testimonials-section')
-      }
-      
+    pageLinks.forEach(function(link){
+      link.addEventListener('click', function(e){
+        let targetElement = e.target
+        if (e.target.tagName !== 'A') {
+          targetElement = e.target.closest('a')
+        }
+        if (targetElement.id.includes('faq')) {
+          return
+        }
+        e.preventDefault();
+        let sectionName = targetElement.id.replace('link', 'section')
+        let sectionPage = targetElement.id.includes('home') ? document.querySelector('html') : document.getElementById(sectionName)
+        let sectionPath = targetElement.id.includes('home') ? `/` : `/#${sectionName}`
+        if (homeLandingPage) {
+          sectionPage.scrollIntoView({behavior: "smooth", block: "start"})
+        } else {
+          Turbolinks.visit(sectionPath)
+        }
+      })
     })
 
     getOfferButtons.forEach(button => {
@@ -118,30 +79,11 @@ export function navigationModule() {
             mainGetOfferButton.click()
         }, 1000);
           html.scrollIntoView({behavior: "smooth", block: "start"})
-        } else if (faqLandingPage || leadCapturedPage || badRequestPage || forbiddenPage || serverErrorPage || notFoundPage || unauthorizedPage) {
+        } else {
           Turbolinks.visit('/')
         }
       })
     })
-
-    // Pulled out now that not using multi page form flow. Here to add back in if needed.
-    
-    // const formatPrice = function(e) {
-    //   if (e.target.value != "") {
-    //     e.target.value = e.target.value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    //   }
-    // }
-
-    // const setEmailErrorMessage = function(e) {
-    //   e.target.setCustomValidity('')
-    //   if (!e.target.validity.valid && e.target.value.length > 0) {
-    //     e.target.setCustomValidity('Please enter a valid email address so we can send you your offer!')
-    //   } else if (!e.target.validity.valid && e.target.value.length == 0) {
-    //     e.target.setCustomValidity('Please enter an email address so we can send you your offer!')
-    //   } else if (e.target.validity.valid) {
-    //     e.target.setCustomValidity('')
-    //   }
-    // }
 
   });
 

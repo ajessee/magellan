@@ -1,23 +1,22 @@
-<div id="unauthorized-route" class="max-w-full">
-
+<div class="flex flex-col max-w-full h-screen">
   <!-- Header -->
-  <%= render 'home_buyer_with_a_heart/main/header' %>
-
-  <section id="unauthorized-section" class="text-gray-600 body-font">
-  <div class="flex px-5 py-24 items-center justify-center flex-col">
-    <%= inline_svg_tag "bad_request.svg", class: 'h-56 md:h-80 w-auto stroke-current text-blue-600' %>
-    <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Unauthorized</h1>
-      <p class="mb-8 text-2xl leading-relaxed">Yeah, you're not allowed to do that. So naughty...</p>
-      <p class="mb-8 text-2xl leading-relaxed">HTTP Status Code: <%= @error_code %></p>
-    </div>
+  <%= render @site.namespace + '/main/header' %>
+  <div id="unauthorized-route" class="flex flex-col flex-grow justify-center">
+    <section id="unauthorized-section" class="text-gray-600 body-font" >
+      <div class="flex flex-col items-center">
+        <%= inline_svg_tag "unauthorized.svg", class: 'h-56 md:h-80 w-auto stroke-current text-blue-600 p-8' %>
+        <div class="text-center lg:w-2/3 w-full">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Unauthorized</h1>
+          <p class="mb-8 text-2xl leading-relaxed">Yeah, you're not allowed to do that. So naughty...</p>
+          <p class="mb-8 text-2xl leading-relaxed">HTTP Status Code: <%= @error_code %></p>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-
   <!-- Footer -->
-  <%= render 'home_buyer_with_a_heart/main/footer' %>
-
+  <%= render @site.namespace + '/main/footer' %>
 </div>
+
 
 
 

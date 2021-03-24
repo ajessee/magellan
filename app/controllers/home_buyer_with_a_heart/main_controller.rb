@@ -1,6 +1,5 @@
 module HomeBuyerWithAHeart
   class MainController < ApplicationController
-    
     def home
     end
 

@@ -1,2 +1,11 @@
-<section id="parallax-1" class="bg-cover bg-fixed bg-center bg-no-repeat h-three-quarters" style="background-image: url(<%= image_url('couple_greet.jpg') %>)">
+<% background_url = 
+  if mobile_device == 'mobile'
+    'couple_greet_tablet.jpg'
+  elsif mobile_device == 'tablet'
+    'couple_greet_tablet.jpg'
+  else 
+    'couple_greet.jpg'   
+  end %>
+
+<section id="parallax-1" class="bg-cover bg-fixed bg-no-repeat bg-center h-three-quarters parallax" style="background-image: url(<%= image_url(background_url) %>)">
 </section>
