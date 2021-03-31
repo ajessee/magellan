@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Site.create(subdomain: 'www', domain: 'homebuyerwithaheart.com', namespace: 'home_buyer_with_a_heart')
-Site.create(subdomain: 'www', domain: 'buyyourhousetexas.com', namespace: 'buy_your_house_texas')
+Site.create(subdomain: 'www', domain: 'foreclosuresolutionsinc.com', namespace: 'foreclosure_solutions')
 Site.create(subdomain: 'magellan-investments', domain: 'herokuapp.com', namespace: 'home_buyer_with_a_heart')
 Site.create(subdomain: '', domain: 'localhost', namespace: 'home_buyer_with_a_heart')

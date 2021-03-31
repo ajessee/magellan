@@ -1,10 +1,10 @@
 # frozen_string_literal: true
-module BuyYourHouseTexas
+module ForeclosureSolutions
   class MainController < ApplicationController
     def home
     end
 
-    def test
+    def espanol
     end
   end
 end
