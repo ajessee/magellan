@@ -18,8 +18,9 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = 'Home Buyer With A Heart'
-    short_title = 'HBWAH'
+    title_array = @site.namespace.split('_').map(&:capitalize)
+    base_title = title_array.join(" ")
+    short_title = title_array.map {|word| word[0]}.join(" ")
     if page_title.empty?
       base_title
     else
