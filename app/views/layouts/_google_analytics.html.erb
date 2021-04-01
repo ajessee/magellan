@@ -1,6 +1,6 @@
-<% if Rails.env.production? %>
+<% if Rails.env.production? || Rails.env.development? %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(:google_analytics_measurement_id) %>"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(@site.namespace_sym, :google_analytics_measurement_id) %>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -8,6 +8,6 @@
     }
     gtag('js', new Date());
 
-    gtag('config', "<%= Rails.application.credentials.dig(:google_analytics_measurement_id) %>");
+    gtag('config', "<%= Rails.application.credentials.dig(@site.namespace_sym, :google_analytics_measurement_id) %>");
   </script>
 <% end %>

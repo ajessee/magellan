@@ -28,7 +28,7 @@ class Lead < ApplicationRecord
       'State' => self.administrative_area_level_1,
       'Country' => self.country,
       'Zip_Code' => self.postal_code,
-      'Lead_Source' => 'HomeBuyerWithAHeart.com',
+      'Lead_Source' => self.lead_source,
       'Lead_Status' => 'Active'
     }
 

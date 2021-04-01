@@ -23,7 +23,7 @@ module Shared
 
     def lead_params
       params.require(:lead).permit(:first_name, :last_name, :email, :phone, :street_number,
-        :address_line_2, :route, :locality, :administrative_area_level_1, :country, :postal_code)
+        :address_line_2, :route, :locality, :administrative_area_level_1, :country, :postal_code, :lead_source)
     end
   end
 end

@@ -4,6 +4,15 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'aliceblue': '#f0f8ff',
+     }),
+    extend: {
+      colors: {
+        'aliceblue': '#f0f8ff'
+      }
+    },
     fontSize: {
       'tiny': '.675rem',
       'xs': '.75rem',

@@ -43,25 +43,25 @@ Rails.application.routes.draw do
   constraints DomainConstraint.new("localhost:3000") do
     ## For testing locally
     ## homebuyer with a heart
-    # defaults namespace: 'home_buyer_with_a_heart' do
-    #   scope module: :home_buyer_with_a_heart do
-    #     root "main#home", as: "home_buyer_local_root"
-    #     get "/faq", to: "main#faq"
-    #   end
-    #   scope module: :shared do
-    #     concerns :shared_routes
-    #   end
-    # end
-    ## foreclosure solutions
-    defaults namespace: "foreclosure_solutions" do
-      scope module: :foreclosure_solutions do
-        root "main#home", as: "foreclosure_solutions_local_root"
-        get "/espanol", to: "main#espanol"
+    defaults namespace: 'home_buyer_with_a_heart', submit_form_button_text: "Get Your Cash Offer" do
+      scope module: :home_buyer_with_a_heart do
+        root "main#home", as: "home_buyer_local_root"
+        get "/faq", to: "main#faq"
       end
       scope module: :shared do
         concerns :shared_routes
       end
     end
+    ## foreclosure solutions
+    # defaults namespace: "foreclosure_solutions", submit_form_button_text: "Contact Us" do
+    #   scope module: :foreclosure_solutions do
+    #     root "main#home", as: "foreclosure_solutions_local_root"
+    #     get "/espanol", to: "main#espanol"
+    #   end
+    #   scope module: :shared do
+    #     concerns :shared_routes
+    #   end
+    # end
   end
 
   constraints DomainConstraint.new("magellan-investments.herokuapp.com") do

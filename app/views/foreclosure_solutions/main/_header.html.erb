@@ -3,9 +3,9 @@
     <div class="px-6 py-3 md:flex md:justify-start md:items-center">
       <div class="flex justify-between items-center">
         <div>
-          <a id="home-link" class="self-center cursor-pointer">
-            <%= image_tag "foreclosure_solutions.png", class: 'h-10 md:h-12 lg:h-14 xl:h-14 2xl:h-18 3xl:h-20' %>
-          </a>
+          <%= link_to @site.namespace + "_root_path", id: "foreclosure-home-link", class: "my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600" do 
+           image_tag "foreclosure_solutions.png", class: 'h-10 md:h-12 lg:h-14 xl:h-14 2xl:h-18 3xl:h-20'
+           end %>
         </div>
 
         <!-- Mobile menu button -->
@@ -25,7 +25,6 @@
           <a id="testimonials-link" class="my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600">Listen To What We Say</a>
           <a id="about-us-link" class="my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600">You'll Like It</a>
           <a id="what-makes-us-different-link" class="my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600">Trust Us</a>
-          <%= link_to "Test", test_path, id: "faq-link", class: "my-1 md:mx-2 lg:mx-4 md:my-0 cursor-pointer hover:text-red-600" %>
         </div>
         <hr class="md:hidden h-px my-2 bg-gray-300 dark:bg-gray-700 border-none">
         <div class="flex flex-col md:items-end">

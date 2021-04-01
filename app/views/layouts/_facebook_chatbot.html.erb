@@ -1,5 +1,5 @@
-<% if Rails.env.production? %>
+<% if Rails.env.production? && @site.namespace != "foreclosure_solutions" %>
   <!-- Facebook Chatbot Code -->
-  <script src="//widget.manychat.com/<%= Rails.application.credentials.dig(:facebook_chat_id) %>.js" defer="defer"></script>
+  <script src="//widget.manychat.com/<%= Rails.application.credentials.dig(@site.namespace_sym, :facebook_chat_id) %>.js" defer="defer"></script>
   <!-- End Facebook Chatbot Code -->
 <% end %>

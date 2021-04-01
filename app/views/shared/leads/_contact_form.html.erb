@@ -1,0 +1,34 @@
+<% 
+    field_classes = "block border rounded border-gray-300 shadow-sm w-full p-1 md:p-3 mb-1 md:mb-4 md:mb-2 text-center"
+    submit_button_classes = "py-1 md:py-3 px-2 md:px-4 bg-blue-600 text-gray-100 font-medium tracking-wider flex-initial w-full cursor-pointer rounded shadow-sm text-center hover:bg-blue-400 focus:bg-gray-600 focus:outline-none" 
+    case @site.namespace
+        when 'home_buyer_with_a_heart'
+            field_classes += " text-tiny md:text-base lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl"
+            submit_button_classes += "text-tiny md:text-sm lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl"
+        when 'foreclosure_solutions'
+            field_classes += " text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl"
+            submit_button_classes += " text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl"
+        else
+    
+    end
+%>
+<div class="flex flex-col dark:border-gray-600 overflow-hidden">
+    <%= form_with model: @lead || Lead.new, id: 'lead-form' do |form| %>
+        <%= form.text_field :autocomplete, id: "autocomplete", class: field_classes, required: true, oninvalid: "this.setCustomValidity('Start typing your address and we will provide a list of matching addresses you can choose from.')", oninput: "this.setCustomValidity('')", placeholder: "Address" %>
+        <%= form.text_field :first_name, class: field_classes, placeholder: "Name" %>
+        <%= form.telephone_field :phone, class: field_classes, placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
+    <div class="hidden">
+        <%= form.text_field :street_number %>
+        <%= form.text_field :route %>
+        <%= form.text_field :locality %>
+        <%= form.text_field :administrative_area_level_1 %>
+        <%= form.text_field :country %>
+        <%= form.text_field :postal_code %>
+        <%= form.hidden_field :last_name %>
+        <%= form.text_field :lead_source, value: @site.domain %>
+        <%= form.hidden_field :email %>
+    </div>
+        <%= form.submit @site.submit_form_button_text, id: "final-lead-form-submit", class: submit_button_classes %>
+      <% end %>
+</div>
+

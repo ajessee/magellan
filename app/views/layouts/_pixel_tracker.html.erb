@@ -1,6 +1,6 @@
-<% if Rails.env.production? %>
+<% if Rails.env.production? && @site.namespace != "foreclosure_solutions" %>
   <!-- TraffikBolt PowerPixel -->
   <script src ="https://up.pixel.ad/assets/up.js?um=1"></script>
-  <script type="text/javascript"> cntrUpTag.track('cntrData', "<%= Rails.application.credentials.dig(:pixel_tracking_id) %>"); </script>
+  <script type="text/javascript"> cntrUpTag.track('cntrData', "<%= Rails.application.credentials.dig(@site.namespace_sym, :pixel_tracking_id) %>"); </script>
   <!-- End of TraffikBolt PowerPixel -->
 <% end %>

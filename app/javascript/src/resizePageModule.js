@@ -2,6 +2,11 @@ export function resizePageModule() {
 
   document.addEventListener("turbolinks:load", function(){
 
+    let siteNamespace = document.querySelector('meta[name="site-namespace"]').content
+    if (siteNamespace == "foreclosure_solutions") {
+      return
+    }
+
     console.log('Resize Page Module')
 
     const navbarHeader = document.getElementById('navbar-header')
