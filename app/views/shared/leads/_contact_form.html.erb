@@ -6,7 +6,8 @@
             field_classes += " text-tiny md:text-base lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl"
             submit_button_classes += "text-tiny md:text-sm lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-3xl"
         when 'foreclosure_solutions'
-            field_classes += " text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl"
+            text_classes = "text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl"
+            field_classes += " " + text_classes
             submit_button_classes += " text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl"
         else
     
@@ -29,6 +30,11 @@
         <%= form.hidden_field :email %>
     </div>
         <%= form.submit @site.submit_form_button_text, id: "final-lead-form-submit", class: submit_button_classes %>
+        <% if @site.namespace == 'foreclosure_solutions' %>
+            <div>
+                <p class="pt-4 <%= text_classes %>">Or Call Us At (832) 261-9232</p>
+            </div>
+        <% end %>
       <% end %>
 </div>
 
