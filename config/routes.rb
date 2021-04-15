@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       scope module: :foreclosure_solutions do
         root "main#home", as: "foreclosure_solutions_local_root"
         get "/espanol", to: "main#espanol"
+        get "/spanish", to: "main#espanol"
       end
       scope module: :shared do
         concerns :shared_routes
@@ -88,6 +89,7 @@ Rails.application.routes.draw do
     scope module: :foreclosure_solutions do
       root "main#home", as: "foreclosure_solutions_root"
       get "/espanol", to: "main#espanol"
+      get "/spanish", to: "main#espanol"
     end
     scope module: :shared do
       concerns :shared_routes

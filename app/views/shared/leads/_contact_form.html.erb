@@ -12,12 +12,21 @@
         else
     
     end
+
+    espanol = espanol ? espanol : false
+    address_placeholder = espanol && espanol == true ? "Dirección" : "Address"
+    name_placeholder = espanol && espanol == true ? "Nombre" : "Name"
+    phone_placeholder = espanol && espanol == true ? "Número" : "Phone"
+    submit_button_text = espanol && espanol == true ? "Contáctenos" : @site.submit_form_button_text
+    phone_number_text = espanol && espanol == true ? "Llámenos al (832) 261-9232" : "Or Call Us At (832) 261-9232"
+    address_validity_text = espanol && espanol == true ? "this.setCustomValidity('Comience a escribir su dirección y le proporcionaremos una lista de direcciones coincidentes entre las que puede elegir.')" : "this.setCustomValidity('Start typing your address and we will provide a list of matching addresses you can choose from.')"
+
 %>
 <div class="flex flex-col dark:border-gray-600 overflow-hidden">
     <%= form_with model: @lead || Lead.new, id: 'lead-form' do |form| %>
-        <%= form.text_field :autocomplete, id: "autocomplete", class: field_classes, required: true, oninvalid: "this.setCustomValidity('Start typing your address and we will provide a list of matching addresses you can choose from.')", oninput: "this.setCustomValidity('')", placeholder: "Address" %>
-        <%= form.text_field :first_name, class: field_classes, placeholder: "Name" %>
-        <%= form.telephone_field :phone, class: field_classes, placeholder: "Phone", required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
+        <%= form.text_field :autocomplete, id: "autocomplete", class: field_classes, required: true, oninvalid: address_validity_text, oninput: "this.setCustomValidity('')", placeholder: address_placeholder %>
+        <%= form.text_field :first_name, class: field_classes, placeholder: name_placeholder %>
+        <%= form.telephone_field :phone, class: field_classes, placeholder: phone_placeholder, required: true, pattern: "[(]\\d{3}[)]\\s\\d{3}-\\d{4}" %>
     <div class="hidden">
         <%= form.text_field :street_number %>
         <%= form.text_field :route %>
@@ -29,10 +38,10 @@
         <%= form.text_field :lead_source, value: @site.domain %>
         <%= form.hidden_field :email %>
     </div>
-        <%= form.submit @site.submit_form_button_text, id: "final-lead-form-submit", class: submit_button_classes %>
+        <%= form.submit submit_button_text, id: "final-lead-form-submit", class: submit_button_classes %>
         <% if @site.namespace == 'foreclosure_solutions' %>
             <div>
-                <p class="pt-4 <%= text_classes %>">Or Call Us At (832) 261-9232</p>
+                <p class="pt-4 <%= text_classes %>"><%= phone_number_text %></p>
             </div>
         <% end %>
       <% end %>

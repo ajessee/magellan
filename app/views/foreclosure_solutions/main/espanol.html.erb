@@ -3,18 +3,18 @@
   <!-- Intro Section -->
   <section id="foreclosure-info-section" class="container mx-auto flex flex-col justify-evenly p-2 md:p-4 text-center h-screen">
     
-    <h1 class="text-xl font-bold px-1 pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">BEHIND ON MORTGAGE?</h1>
-    <h2 class="text-base font-medium px-1 pb-3 md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-6xl 3xl:text-7xl">The worst way to lose your house is through foreclosure.</h2>
+    <h1 class="text-2xl font-bold px-1 pt-1 md:pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">¿DETRÁS DE SU HIPOTECA?</h1>
+    <h2 class="text-xl font-medium px-1 pb-3 md:text-3xl lg:text-3xl xl:text-2xl 2xl:text-5xl 3xl:text-7xl">La peor forma de perder su casa es mediante a una ejecución hipotecaria.</h2>
 
     <div class="flex flex-col lg:flex-row items-center justify-around lg:justify-evenly w-full h-auto">
 
       <div class="flex mx-auto m-2 shadow md:w-5/6 lg:w-1/2">
-        <video class="rounded w-full h-auto" controls src="https://foreclosure-solutions.s3.amazonaws.com/foreclosure_solutions_intro.mp4"></video>
+        <video class="rounded w-full h-auto" src="https://foreclosure-solutions.s3.amazonaws.com/foreclosure_solutions_intro.mov" autoplay controls></video>
       </div>
 
       <div class="bg-gray-200 p-4 lg:p-8 w-5/6 lg:w-2/6 rounded shadow">
         <!-- Contact Form -->
-        <%= render 'shared/leads/contact_form' %>
+        <%= render 'shared/leads/contact_form', espanol: true %>
       </div>
 
     </div>
@@ -24,13 +24,12 @@
   <!-- Delinquency Consequences Section  -->
   <section id="foreclosure-consequences-section" class="container mx-auto flex flex-col justify-evenly p-2 md:p-4 text-center">
 
-    <h1 class="text-xl font-bold px-1 pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">DELINQUINCY CONSEQUENCES</h1>
-    <p class="text-base font-medium px-1 pb-3 md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-7xl">What happens if I keep missing payments?</p>
+    <h1 class="text-xl font-bold px-1 pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">Consecuencias de la delincuencia</h1>
+    <p class="text-base font-medium px-1 pb-3 md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-7xl">¿Qué sucede si sigo perdiendo mis pagos hipotecarias?</p>
 
-    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">If you continue to miss payments and aren’t able to work out a solution with the bank, you will likely be foreclosed on within 6 months following your first missed payment. We call foreclosure "the atomic bomb of credit scars" because it cuts the deepest and lasts the longest.
-    </p>
+    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">Si sigue teniendo mora en sus pagos hipotecarios, la ejecución hipotecaria no se dará por sí sola. Si no puede encontrar una solución con el banco, es probable que la hipoteca sea ejecutada dentro de los 6 meses posteriores a su primer pago en mora. Si no puede encontrar una solución con el banco, es probable que lo ejecuten dentro de los 6 meses posteriores a su primer pago atrasado.</p>
 
-    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">Foreclosure is the beginning of an 8–10 year nightmare that can involve everything from:</p>
+    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">La ejecución hipotecaria es el comienzo de sus problemas, no el final.</p>
 
     <!-- Delinquency Icons -->
     <div class="flex justify-evenly px-1 py-3">
@@ -47,7 +46,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Eviction By Sheriff</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Desalojo por el sheriff</span>
 
           </div>
 
@@ -63,7 +62,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Tax Ramifications</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Ramificaciones fiscales</span>
 
           </div>
 
@@ -78,7 +77,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Job & Career Limitations</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Limitaciones laborales y profesionales</span>
 
           </div>
 
@@ -93,7 +92,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Garnished Wages</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Embargo de salarios</span>
 
           </div>
 
@@ -108,7 +107,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Embarassing Creditor Battles</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Vergonzosas batallas de acreedores</span>
 
           </div>
 
@@ -122,7 +121,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Loan Qualification Challenges</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Desafíos de calificación de préstamos</span>
 
           </div>
 
@@ -137,7 +136,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Deficiency Judgements and Laws</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Juicios y leyes de deficiencia</span>
 
           </div>
 
@@ -152,7 +151,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Loss in Home Equity</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Pérdida de la plusvalía de la vivienda</span>
 
           </div>
 
@@ -166,10 +165,10 @@
   <!-- Know Your Options Section -->
   <section id="foreclosure-options-section" class="container mx-auto flex flex-col justify-evenly p-2 md:p-4 text-center">
 
-    <h1 class="text-xl font-bold px-1 pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">KNOW YOUR OPTIONS</h1>
-    <p class="text-base font-medium px-1 pb-3 md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-7xl">Everyone deserves to know their options.</p>
+    <h1 class="text-xl font-bold px-1 pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">CONOZCA SUS OPCIONES</h1>
+    <p class="text-base font-medium px-1 pb-3 md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-7xl">Todos merecen conocer sus opciones.</p>
 
-    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">Helping homeowners avoid foreclosure and learn their options is what we do best. We will work with you to find the best solution based on your situation and needs.</p>
+    <p class="text-gray-600 p-1 text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl lg:w-3/4 lg:self-center">Ayudar a los propietarios a evitar la ejecución hipotecaria y conocer sus opciones es lo que mejor hacemos. Trabajaremos con usted para encontrar la mejor solución en función de su situación y necesidades.</p>
     <!-- Know Your Options Icons -->
     <div class="flex justify-evenly px-1 py-3">
 
@@ -185,7 +184,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Bankruptcy</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Bancarrota</span>
 
           </div>
 
@@ -200,7 +199,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Forbearance Plans</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Reinstalación</span>
 
           </div>
         </div>
@@ -214,7 +213,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Temporary Restraining Orders</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Órdenes de restricción temporales</span>
 
           </div>
 
@@ -229,7 +228,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Loan Modifications</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Modificaciones de préstamos</span>
 
           </div>
 
@@ -244,7 +243,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Deed-In-Lieu of Forclosure</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Pago de la casa</span>
 
           </div>
 
@@ -259,7 +258,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Short Sales</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Ventas cortas</span>
 
           </div>
 
@@ -274,7 +273,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Catch-up Payments</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Pagos de recuperación</span>
 
           </div>
 
@@ -289,7 +288,7 @@
               </path>
             </svg>
 
-            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Sell Your House</span>
+            <span class="flex-grow text-base text-gray-600 md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-4xl">Vende su casa</span>
 
           </div>
 
@@ -303,10 +302,10 @@
 
   <!-- Call to Action -->
   <section id="foreclosure-cta-section" class="container mx-auto flex flex-col justify-evenly p-2 md:p-4 text-center">
-    <p class="font-bold text-base md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl">We can help you choose the best option.</p>
-    <p class="font-bold text-base md:text-2xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-4xl">Book a FREE, no obligation consultation.</p>
+    <p class="font-bold text-base md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-5xl">Podemos ayudarle a elegir la mejor opción.</p>
+    <p class="font-bold text-base md:text-2xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-4xl">Reserve una consulta GRATUITA y sin compromiso.</p>
     <div class="py-8">
-      <a href="#" id="foreclosure-cta-button" class="font-bold text-lg md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-white bg-blue-600 rounded hover:bg-blue-700 p-4 xl:p-6">Contact Us</a>
+      <a href="#" id="foreclosure-cta-button" class="font-bold text-lg md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-white bg-blue-600 rounded hover:bg-blue-700 p-4 xl:p-6">Contáctenos</a>
     </div>
 
   </section>

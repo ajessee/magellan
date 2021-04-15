@@ -5,14 +5,15 @@ export function navigationModule() {
     console.log('Navigation Module')
 
     const siteNamespace = document.querySelector('meta[name="site-namespace"]').content
+    const espanol = window.location.href.includes("espanol") || window.location.href.includes("spanish")
     const html = document.querySelector('html')
     const mainGetOfferButton = document.getElementById('final-lead-form-submit')
     let phoneCustomValidityFirst;
     let phoneCustomValiditySecond;
     switch(siteNamespace) {
       case "foreclosure_solutions":
-        phoneCustomValidityFirst = 'Please enter a phone number so we can call you!';
-        phoneCustomValiditySecond = 'Please enter a valid phone number so we can call you!'
+        phoneCustomValidityFirst = espanol ? 'Por favor ingrese un número de teléfono para que podamos llamarlo.' : 'Please enter a phone number so we can call you!';
+        phoneCustomValiditySecond = espanol ? 'Por favor ingrese un número de teléfono válido para que podamos llamarlo.' : 'Please enter a valid phone number so we can call you!'
         break;
       case "home_buyer_with_a_heart":
         phoneCustomValidityFirst = 'Please enter a phone number so we can call you with your offer!';
