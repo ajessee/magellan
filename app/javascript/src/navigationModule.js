@@ -71,7 +71,7 @@ export function navigationModule() {
 
     if (siteNamespace == "home_buyer_with_a_heart") {
 
-      const homeLandingPage = document.getElementById('home-route')
+      const homeLandingPage = document.getElementById('home-buyer-route')
       const mobileMenu = document.getElementById('mobile-menu')
       const mobileMenuButton = document.getElementById('mobile-menu-button')
       const getOfferButtons = document.querySelectorAll('.get-offer-buttons')

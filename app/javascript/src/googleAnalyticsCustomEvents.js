@@ -3,9 +3,11 @@ export function googleAnalyticsCustomEvents() {
 
   document.addEventListener("turbolinks:load", function(){
 
-    const homeLandingPage = document.getElementById('home-route')|| document.getElementById('foreclosure-home-route') || document.getElementById('foreclosure-espanol-home-route')
+    const homeBuyerLandingPage = document.getElementById('home-buyer-route')
+    const foreclosureLandingPage = document.getElementById('foreclosure-home-route')
+    const foreclosureEspanolLandingPage = document.getElementById('foreclosure-espanol-home-route')
 
-    if (homeLandingPage) {
+    if (homeBuyerLandingPage || foreclosureLandingPage || foreclosureEspanolLandingPage) {
 
       const getOfferButtons = document.querySelectorAll('.get-offer-buttons')
       const leadForm = document.getElementById('lead-form')

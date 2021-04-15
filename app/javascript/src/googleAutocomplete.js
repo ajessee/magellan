@@ -9,7 +9,9 @@ export function googleAddressModule() {
 
   document.addEventListener("turbolinks:load", function(){
 
-    const homeLandingPage = document.getElementById('home-route') || document.getElementById('foreclosure-home-route') || document.getElementById('foreclosure-espanol-home-route')
+    const homeBuyerLandingPage = document.getElementById('home-buyer-route')
+    const foreclosureLandingPage = document.getElementById('foreclosure-home-route')
+    const foreclosureEspanolLandingPage = document.getElementById('foreclosure-espanol-home-route')
 
     let placeSearch;
     let autocomplete;
@@ -76,7 +78,7 @@ export function googleAddressModule() {
       }
     }
 
-    if (homeLandingPage) {
+    if ((homeBuyerLandingPage || foreclosureLandingPage || foreclosureEspanolLandingPage)) {
       initAutocomplete()
     }
   })
