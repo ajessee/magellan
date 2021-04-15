@@ -3,7 +3,7 @@ export function googleAnalyticsCustomEvents() {
 
   document.addEventListener("turbolinks:load", function(){
 
-    const homeLandingPage = document.getElementById('home-route')
+    const homeLandingPage = document.getElementById('home-route')|| document.getElementById('foreclosure-home-route') || document.getElementById('foreclosure-espanol-home-route')
 
     if (homeLandingPage) {
 

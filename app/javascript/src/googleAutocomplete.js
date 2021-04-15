@@ -9,7 +9,7 @@ export function googleAddressModule() {
 
   document.addEventListener("turbolinks:load", function(){
 
-    const homeLandingPage = document.getElementById('home-route') || document.getElementById('foreclosure-home-route')
+    const homeLandingPage = document.getElementById('home-route') || document.getElementById('foreclosure-home-route') || document.getElementById('foreclosure-espanol-home-route')
 
     let placeSearch;
     let autocomplete;
