@@ -11,6 +11,7 @@ import { googleAddressModule } from "../src/googleAutocomplete"
 import { googleAnalyticsCustomEvents } from "../src/googleAnalyticsCustomEvents"
 import { navigationModule } from "../src/navigationModule"
 import { resizePageModule } from "../src/resizePageModule"
+import { videoModule } from "../src/videoModule"
 
 Rails.start()
 Turbolinks.start()
@@ -21,4 +22,5 @@ require("stylesheets/application.scss")
 googleAddressModule()
 googleAnalyticsCustomEvents()
 navigationModule()
+videoModule()
 resizePageModule()

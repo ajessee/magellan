@@ -1,22 +1,27 @@
 <div id="foreclosure-home-route" class="w-full divide-y divide-black bg-aliceblue">
 
+  
   <!-- Intro Section -->
   <section id="foreclosure-info-section" class="container mx-auto flex flex-col justify-evenly p-2 md:p-4 text-center h-screen">
     
     <h1 class="text-2xl font-bold px-1 pt-1 md:pt-3 md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl 3xl:text-8xl">BEHIND ON MORTGAGE?</h1>
     <h2 class="text-xl font-medium px-1 pb-3 md:text-3xl lg:text-3xl xl:text-2xl 2xl:text-5xl 3xl:text-7xl">The worst way to lose your house is through foreclosure.</h2>
-
+    
     <div class="flex flex-col lg:flex-row items-center justify-around lg:justify-evenly w-full h-auto">
-
+      
+      
       <div class="flex mx-auto m-2 shadow md:w-5/6 lg:w-1/2">
-        <video class="rounded w-full h-auto" src="https://foreclosure-solutions.s3.amazonaws.com/foreclosure_solutions_intro.mov" autoplay controls></video>
+        <video id="english-intro-video" class="intro-video rounded w-full h-auto" src="https://foreclosure-solutions.s3.amazonaws.com/foreclosure_solutions_intro.mov" autoplay controls></video>
       </div>
-
+      
       <div class="bg-gray-200 p-4 lg:p-8 w-5/6 lg:w-2/6 rounded shadow">
         <!-- Contact Form -->
         <%= render 'shared/leads/contact_form' %>
       </div>
-
+      
+    </div>
+    <div class="p-2">
+      <a href="/espanol" id="espanol-button" class="lang-button font-bold text-base md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-6xl text-white bg-blue-600 rounded hover:bg-blue-700 p-2 xl:p-4">Español</a>
     </div>
 
   </section>
